@@ -1,5 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe V1::BasePresenter do
+describe Api::V1::BasePresenter do
 
 end
