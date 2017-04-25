@@ -37,18 +37,18 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.4'
+  gem 'rspec-rails'
   gem 'rspec-its'
-  gem 'factory_girl_rails', '~> 4.5'
-  gem 'ffaker', '~> 2.1'
-  gem 'shoulda-matchers', '~> 3.0'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'shoulda-matchers'
 
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano3-puma'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
-  gem 'capistrano-delayed-job', '~> 1.0'
+  gem 'capistrano-delayed-job'
 
   gem 'api_matchers'
 end
