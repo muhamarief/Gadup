@@ -1,5 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe V1::BaseController do
+describe Api::V1::BaseController do
 
 end
