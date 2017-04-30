@@ -16,4 +16,9 @@ RSpec.describe User, type: :model do
       it { is_expected.to allow_value('example@domain.com').for(:email) }
     end
   end
+
+  it { is_expected.to respond_to(:username) }
+  it { is_expected.to respond_to(:email) }
+
+  it { is_expected.to have_many(:api_keys) }
 end
