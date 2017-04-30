@@ -3,12 +3,14 @@ class ApiKey < ApplicationRecord
 
   belongs_to :owner, polymorphic: true
 
-  validates :access_token, presence: true
+  validates :access_token, uniqueness: true
   validates :owner, presence: true
 
-  def generate_access_token!
-    begin
-      self.access_token = SecureRandom.hex
-    end while self.class.exist?(access_token: access_token)
-  end
+  private
+    def generate_access_token!
+      begin
+        self.access_token = SecureRandom.hex
+      end while self.class.exists?(access_token: access_token)
+    end
+
 end

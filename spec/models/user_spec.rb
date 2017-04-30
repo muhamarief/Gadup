@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+  before { @user = build(:user) }
+
+  subject { @user }
+
   context 'validation' do
 
     describe "user email and username validation" do
