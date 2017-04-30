@@ -58,6 +58,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Request::HeadersHelpers, type: :controller
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:each, type: :controller) do
     include_default_accept_headers
