@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :username, :email, presence: true
   validates :email, uniqueness: true
   validates :password, length: { in: 6..20 }
+
+  has_many :api_keys, as: :owner
 end
