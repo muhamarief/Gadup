@@ -1,6 +1,5 @@
 FactoryGirl.define do
-  factory :api_key do
-    owner nil
-
+  factory :user_api_key, class: 'ApiKey' do
+    association :owner, factory: :user
   end
 end
