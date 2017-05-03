@@ -51,6 +51,9 @@ group :development, :test do
   gem 'capistrano-delayed-job'
 
   gem 'api_matchers'
+  gem 'rails-controller-testing'
+
+  gem 'rspec-given'
 end
 
 group :development do
