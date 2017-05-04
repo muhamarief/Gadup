@@ -17,7 +17,7 @@ class User < ApplicationRecord
   def confirmation_expired?
     #3days duration
     duration = 3600 * 24 * 3
-    true if self.confirmation_sent_at + duration < Time.now end
+    true if self.confirmation_sent_at + duration < Time.now
   end
 
   def after_expired_confirmation_email
@@ -35,10 +35,10 @@ class User < ApplicationRecord
     token = SecureRandom.urlsafe_base64.to_s
     self.confirmation_token = token
     self.confirmation_sent_at = Time.now
-    self.save
   end
 
   def regenerate_confirmation_token
-    generate_confirmation_token
+    self.generate_confirmation_token
+    self.save
   end
 end
