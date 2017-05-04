@@ -70,3 +70,9 @@ gem 'versionist'
 
 #user authentication
 gem 'devise'
+
+#for secure rails application secret configuration
+gem "figaro"
+
+#delayed job
+gem 'delayed_job_active_record'
