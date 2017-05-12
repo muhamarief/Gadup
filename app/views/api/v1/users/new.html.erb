@@ -1,0 +1,20 @@
+<div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+  <center>
+    <h4> Silahkan Masukkan Nama, Email dan Password anda </h4>
+  </center>
+  <%= form_for [:v1, @user] do |form| %>
+    <%= form.label :username%>
+    <%= form.text_field :username%></br>
+
+    <%= form.label :email%>
+    <%= form.text_field :email%></br>
+
+    <%= form.label :password %>
+    <%= form.password_field :password %></br>
+
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %></br>
+
+    <%= form.submit %>
+  <% end %>
+</div>
