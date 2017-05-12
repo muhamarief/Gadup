@@ -1,0 +1,28 @@
+<center>
+  <h2> Selamat Datang di Gadup Indonesia </h2>
+  <h3> Asisten pribadi untuk managemen keuangan dan hidup anda </h3>
+</center>
+
+<div class="container">
+  <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" id='welcome-user-action'>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6 col-sm-6'>
+        <p> Social Media Buttons
+      </div>
+      <div class='col-md-6 col-xs-6 col-sm-6'>
+        <center>
+          <h4> Silahkan Masukkan Email dan Password anda </h4>
+        </center>
+        <%= form_tag v1_auth_users_path do %>
+          <%= label_tag :email%>
+          <%= text_field_tag :email%></br>
+
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+          <div class="actions"><%= submit_tag "Log In" %></div>
+        <% end %>
+      </div>
+        <%=link_to "bergabung dengan email pribadi", new_v1_user_path %>
+    </div>
+  </div>
+</div>

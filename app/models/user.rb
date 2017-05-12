@@ -26,8 +26,7 @@ class User < ApplicationRecord
 
   def activate_account
     self.email_confirmed = true
-    self.confirm_token = nil
-    self.save
+    self.confirmation_token = nil
   end
 
   private
