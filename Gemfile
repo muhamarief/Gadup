@@ -43,13 +43,6 @@ group :development, :test do
   gem 'ffaker'
   gem 'shoulda-matchers'
 
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano3-puma'
-  gem 'capistrano-rails'
-  gem 'capistrano-rvm'
-  gem 'capistrano-delayed-job'
-
   gem 'api_matchers'
   gem 'rails-controller-testing'
 
@@ -76,3 +69,7 @@ gem "figaro"
 
 #delayed job
 gem 'delayed_job_active_record'
+gem "daemons"
+
+#bootstrap
+gem 'bootstrap-sass'
