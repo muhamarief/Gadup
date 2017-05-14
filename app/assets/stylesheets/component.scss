@@ -1,14 +1,9 @@
+// PART 1 STYLES FOR _HEADERS.HTML.ERB
 #header {
     list-style-type: none;
     margin: 0;
-    background-color: white;
-    border-bottom: 3px solid #ededed;
-}
-
-.main-nav a:hover:not(.active) {
-    color: #A2D4F0;
-    text-decoration: none;
-
+    background-color: #1D5574;
+    padding-bottom: 6px;
 }
 
 .dropdown a:hover:not(.active) {
@@ -21,9 +16,17 @@
     color: #379ED7;
 }
 
-.left-header, .right-header {
+.left-header {
   display: inline-block;
   vertical-align: middle;
+  margin-left: 20px;
+}
+
+.right-header{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+
 }
 
 .branding {
@@ -35,25 +38,6 @@
 
 .branding a{
   margin-right: 100px;
-}
-
-.main-nav {
-  display: inline-block;
-  vertical-align: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.main-nav a {
-  margin-right: 30px;
-}
-
-.main-nav-btn{
-  font-size: 18px;
-  color: #379ED7;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  font-style: normal;
 }
 
 .notif-dropdown a {
@@ -111,4 +95,37 @@
   .branding {
     margin-right: 0px;
   }
+}
+
+
+// PART 2 STYLES FOR _DASHBOARDNAV.HTML.ERB
+.dashboard-menu {
+  list-style: none;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  display: table-cell;
+  margin: 0;
+  background-color: #1D5574;
+  position: fixed;
+  height: 100%;
+}
+
+.dashboard-menu li a {
+  color: #9d9d9d;
+  font-size: 15px;
+  display: block;
+  padding: 10px 85px 25px 15px;
+}
+
+.dashboard-menu li a:hover:not(.navbar-active) {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-active {
+  color: #9d9d9d;
+}
+
+.dashboard-menu li:hover {
+  background-color: #103042;
 }
