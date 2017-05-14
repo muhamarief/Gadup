@@ -3,8 +3,11 @@
     <h4> Silahkan Masukkan Nama, Email dan Password anda </h4>
   </center>
   <%= form_for [:v1, @user] do |form| %>
-    <%= form.label :username%>
-    <%= form.text_field :username%></br>
+    <%= form.label :first_name%>
+    <%= form.text_field :first_name%></br>
+
+    <%= form.label :last_name%>
+    <%= form.text_field :last_name%></br>
 
     <%= form.label :email%>
     <%= form.text_field :email%></br>

@@ -14,8 +14,8 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# # Use SCSS for stylesheets
+# gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -72,4 +72,7 @@ gem 'delayed_job_active_record'
 gem "daemons"
 
 #bootstrap
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
+gem "font-awesome-rails"
+gem 'jquery-ui-rails'
