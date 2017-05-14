@@ -1,4 +1,74 @@
-<div id='user-dashboard'>
-    <%= render template: "api/v1/component/_headers"%>
-<!-- user-dashboard -->
+<%= render template: "api/v1/component/_headers"%>
+<%= render template: "api/v1/component/_dashboardnav.html.erb"%>
+
+<div id='dashboard-container' class='col-md-10 col-sm-10 col-lg-10 col-xs-12'>
+    <div class='dashboard-header'>
+        <h2 class='dashboard-header-context'> DASHBOARD <small> Statistic Overview </small></h2>
+    <!-- div .dashboard-head -->
+    </div>
+    <div class='row'>
+        <div class='col-md-6 col-sm-6 col-lg-3 col-xs-12'>
+            <div class='panel panel-primary'>
+                <div class="panel-heading">
+                    <i class="fa fa-building panel-icons" aria-hidden="true"></i>
+                    Add Places
+                </div>
+                <div class="panel-body">
+                  <a href='#'>
+                    View Details
+                  </a>
+                </div>
+            <!-- div .panel panel-primary -->
+            </div>
+        <!-- div .col-md-6 col-lg-3 col-xs-12 -->
+        </div>
+        <div class='col-md-6 col-sm-6 col-lg-3 col-xs-12'>
+            <div class='panel panel-green'>
+                <div class="panel-heading">
+                    <i class="fa fa-diamond panel-icons" aria-hidden="true"></i>
+                    Add Income
+                </div>
+                <div class="panel-body">
+                  <a href='#'>
+                    View Details
+                  </a>
+                </div>
+            <!-- div .panel panel-green -->
+            </div>
+        <!-- div .col-md-6 col-lg-3 col-xs-12 -->
+        </div>
+        <div class='col-md-6 col-sm-6 col-lg-3 col-xs-12'>
+            <div class='panel panel-yellow'>
+                <div class="panel-heading">
+                    <i class="fa fa-external-link panel-icons" aria-hidden="true"></i>
+                    Add Spending
+                </div>
+                <div class="panel-body">
+                  <a href='#'>
+                    View Details
+                  </a>
+                </div>
+            <!-- div .panel panel-primary -->
+            </div>
+        <!-- div .col-md-6 col-lg-3 col-xs-12 -->
+        </div>
+        <div class='col-md-6 col-sm-6 col-lg-3 col-xs-12'>
+            <div class='panel panel-black'>
+                <div class="panel-heading">
+                    <i class="fa fa-balance-scale panel-icons" aria-hidden="true"></i>
+                    Wallet Settings
+                </div>
+                <div class="panel-body">
+                  <a href='#'>
+                    View Details
+                  </a>
+                </div>
+            <!-- div .panel panel-primary -->
+            </div>
+        <!-- div .col-md-6 col-lg-3 col-xs-12 -->
+        </div>
+    <!-- div .row -->
+    </div>
+
+<!-- div #dashboard-container -->
 </div>
