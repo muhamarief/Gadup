@@ -7,9 +7,9 @@ class User < ApplicationRecord
   devise  :registerable, :recoverable,
           :rememberable, :trackable, :validatable
 
-  validates :username, :email, presence: true
+  validates :full_name, :email, presence: true
   validates :email, uniqueness: true
-  validates :password, length: { in: 6..20 }
+  # validates :password, length: { in: 6..20 }
   validates :password, presence: true, on: :create
 
   has_many :api_keys, as: :owner
@@ -27,6 +27,12 @@ class User < ApplicationRecord
   def activate_account
     self.email_confirmed = true
     self.confirmation_token = nil
+    self.save
+  end
+
+  def set_full_name
+    self.full_name = self.first_name + self.last_name
+    self.save
   end
 
   private
