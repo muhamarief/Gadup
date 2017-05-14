@@ -3,12 +3,13 @@ class Api::V1::Auth::UsersController < Api::V1::BaseController
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-      api_key = user.api_keys.create!
       # #api based rails
+      # api_key = user.api_keys.create!
       # render json: { access_token: api_key.access_token }
 
       #view based rails
-      redirect_to v1_user_path(@user.username)
+      session[:user_id] = user.id
+      redirect_to v1_user_path(@user.id)
     else
       # #api based rails
       # render json: { error: "Invalid email or password" }, status: :unauthorized
@@ -20,11 +21,12 @@ class Api::V1::Auth::UsersController < Api::V1::BaseController
   end
 
   def destroy
-    ApiKey.find_by(access_token: params[:id]).destroy
     # #api based rails
+    # ApiKey.find_by(access_token: params[:id]).destroy
     # head :no_content
 
     #view based rails
+    session[:user_id] = nil
     redirect_to root_path
   end
 
