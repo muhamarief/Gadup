@@ -10,8 +10,8 @@ class ApplicationMailer < ActionMailer::Base
   protected
   def format_recipient(recipient)
     if recipient.is_a?(User)
-      %("#{recipient.username}" <#{recipient.email}>)
+      %("#{recipient.full_name}" <#{recipient.email}>)
     end
   end
-  
+
 end
