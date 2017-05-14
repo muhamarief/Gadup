@@ -1,0 +1,69 @@
+// PART 1 USER-DASHBOARD-PAGE
+.dashboard-header {
+  padding: 20px 0px 20px 0px;
+}
+
+.dashboard-header-context {
+  border-bottom: 1px solid #BEBEBE;
+}
+
+
+.panel-green{
+  border-color: #5cb85c !important;
+}
+
+.panel-yellow {
+  border-color: #f0ad4e !important;
+}
+
+.panel-black {
+  border-color: #0A0A0A !important;
+}
+
+.panel-green .panel-heading {
+  border-color: #5cb85c;
+  color: #fff;
+  background-color: #5cb85c;
+}
+
+.panel-yellow .panel-heading {
+  border-color: #f0ad4e;
+  color: #fff;
+  background-color: #f0ad4e;
+}
+
+.panel-black .panel-heading {
+  border-color: #0A0A0A;
+  color: #fff;
+  background-color: #0A0A0A;
+}
+
+.panel-icons {
+  font-size: 35px !important;
+}
+
+.panel-body {
+  padding: 0px !important;
+}
+
+.panel-body a {
+  padding: 15px;
+  display: block;
+  text-decoration: none !important;
+}
+
+.panel-body:hover {
+  background-color: #B2B1B1;
+}
+
+.panel-green .panel-body a{
+  color: #5cb85c;
+}
+
+.panel-yellow .panel-body a{
+  color: #f0ad4e;
+}
+
+.panel-black .panel-body a{
+  color: #0A0A0A;
+}
