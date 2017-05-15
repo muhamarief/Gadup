@@ -11,13 +11,15 @@
             <i class="fa fa-tachometer" aria-hidden="true"></i>
             &nbsp; Dasboard
         </a>
+
     </li>
 
     <li>
-        <a href='#'>
+        <%=link_to v1_user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) do %>
             <i class="fa fa-money" aria-hidden="true"></i>
             &nbsp; Transactions
-        </a>
+        <% end %>
+
     </li>
 
     <li>
