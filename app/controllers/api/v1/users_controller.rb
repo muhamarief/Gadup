@@ -51,6 +51,7 @@ class Api::V1::UsersController < Api::V1::BaseController
       else
         @user = user
         @user.activate_account
+        @user.wallets.create!
 
         # #api based rails
         # api_key = @user.api_keys.create!
@@ -90,9 +91,12 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def authenticate_me!
+    # #api
     # render_unauthorized unless current_authenticatee and current_authenticatee.kind_of?(User)
     # @user = current_authenticatee
-    if current_authenticatee && current_authenticatee.kind_of?(User)
+
+    #session
+    if current_authenticatee && current_authenticatee.kind_of?(User) && params[:id].to_i == current_authenticatee.id
       @user = current_authenticatee
     else
       render :file => "public/401.html", :status => :unauthorized

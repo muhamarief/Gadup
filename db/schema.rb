@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504020354) do
+ActiveRecord::Schema.define(version: 20170514233210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "api_keys", force: :cascade do |t|
-    t.string   "owner_type",   null: false
+    t.string   "owner_type"
     t.integer  "owner_id",     null: false
     t.string   "access_token"
     t.datetime "deleted_at"
@@ -38,6 +38,30 @@ ActiveRecord::Schema.define(version: 20170504020354) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
+
+  create_table "incomes", force: :cascade do |t|
+    t.float    "nominal",          null: false
+    t.date     "transaction_date", null: false
+    t.time     "transaction_time", null: false
+    t.integer  "wallet_id",        null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "description"
+    t.json     "photos"
+    t.index ["wallet_id"], name: "index_incomes_on_wallet_id", using: :btree
+  end
+
+  create_table "spendings", force: :cascade do |t|
+    t.float    "nominal",       null: false
+    t.date     "spending_date", null: false
+    t.time     "spending_time", null: false
+    t.integer  "wallet_id",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "description"
+    t.json     "photos"
+    t.index ["wallet_id"], name: "index_spendings_on_wallet_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,6 +88,15 @@ ActiveRecord::Schema.define(version: 20170504020354) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "wallets", force: :cascade do |t|
+    t.string   "owner_type"
+    t.integer  "owner_id",                     null: false
+    t.float    "wallet_balance", default: 0.0, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["owner_type", "owner_id"], name: "index_wallets_on_owner_type_and_owner_id", using: :btree
   end
 
 end
