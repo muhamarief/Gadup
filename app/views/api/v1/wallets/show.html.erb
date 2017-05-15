@@ -1,0 +1,207 @@
+<%= render template: "api/v1/component/_headers"%>
+<%= render template: "api/v1/component/_dashboardnav.html.erb"%>
+
+<div id="transaction-containers" class='col-md-10 col-sm-10 col-lg-10 col-xs-12'>
+    <div class='dashboard-header'>
+        <h2 class='dashboard-header-context'> TRANSACTIONS <small> Full Overview </small></h2>
+    <!-- div .dashboard-header -->
+    </div>
+    <div class='row'>
+        <div class='col-md-6 col-sm-12 col-lg-6 col-xs-12'>
+            <div class='panel panel-green'>
+                <div class="panel-heading">
+                    <i class="fa fa-diamond panel-icons" aria-hidden="true"></i>
+                    Incomes
+                </div>
+                <div class="panel-body">
+                    <a href='#' data-toggle='modal' data-target="#incomeModal">
+                      Add my Income information
+                      <i class="fa fa-arrow-right pull-right" aria-hidden="true"></i>
+                    </a>
+
+                    <div class="modal fade" id="incomeModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Add Income</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <%=form_tag v1_user_wallet_incomes_path(current_authenticatee, @wallet) do %>
+                                        <div class='field'>
+                                            <%= label_tag :nominal %><br/>
+                                            <%= text_field_tag :nominal %>
+                                        </div>
+                                        <div class='field'>
+                                            <%= label_tag :transaction_date %><br/>
+                                            <%= text_field_tag :transaction_date %>
+                                        </div>
+                                        <div class='field'>
+                                            <%= label_tag :transaction_time %><br/>
+                                            <%= text_field_tag :transaction_time %>
+                                        </div>
+                                        <div class='field'>
+                                            <%= label_tag :description %><br/>
+                                            <%= text_field_tag :description %>
+                                        </div>
+                                    <% end %>
+                                </div>
+
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            <!-- Modal content-->
+                            </div>
+                        </div>
+                    <!-- div. modal -->
+                    </div>
+                <!-- div. panel-body -->
+                </div>
+            <!-- div .panel panel-green -->
+            </div>
+        <!-- div .col-md-6 col-lg-3 col-xs-12 -->
+        </div>
+        <div class='col-md-6 col-sm-12 col-lg-6 col-xs-12'>
+            <div class='panel panel-yellow'>
+                <div class="panel-heading">
+                    <i class="fa fa-external-link panel-icons" aria-hidden="true"></i>
+                    Spendings
+                </div>
+                <div class="panel-body">
+                  <a href='#' data-toggle='modal' data-target="#spendingModal">
+                    Add my Spendings information
+                    <i class="fa fa-arrow-right pull-right" aria-hidden="true"></i>
+                  </a>
+
+                  <div class="modal fade" id="spendingModal" role="dialog">
+                      <div class="modal-dialog">
+
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Add Income</h4>
+                              </div>
+
+                              <div class="modal-body">
+                                  <%=form_tag v1_user_wallet_spendings_path(current_authenticatee, @wallet) do %>
+                                      <div class='field'>
+                                          <%= label_tag :nominal %><br/>
+                                          <%= text_field_tag :nominal %>
+                                      </div>
+                                      <div class='field'>
+                                          <%= label_tag :transaction_date %><br/>
+                                          <%= text_field_tag :transaction_date %>
+                                      </div>
+                                      <div class='field'>
+                                          <%= label_tag :transaction_time %><br/>
+                                          <%= text_field_tag :transaction_time %>
+                                      </div>
+                                      <div class='field'>
+                                          <%= label_tag :description %><br/>
+                                          <%= text_field_tag :description %>
+                                      </div>
+                                  <% end %>
+                              </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                          <!-- Modal content-->
+                          </div>
+                      </div>
+                  <!-- div. modal -->
+                </div>
+            <!-- div .panel panel-primary -->
+            </div>
+        <!-- div .col-md-6 col-lg-3 col-xs-12 -->
+        </div>
+    <!-- div .row -->
+    </div>
+    <div class='page-content'>
+        <div class='col-lg-6 col-sm-6 col-md-12 col-xs-12'>
+            <h3 class='transactions-header-content'>
+                Incomes
+            </h3>
+            <div class='transactions-body'>
+                <div class='table-responsive'>
+                    <table class='table table-hover table-bordered'>
+                        <thead>
+                            <tr>
+                                <th> Transaction Id </th>
+                                <th> Nominal </th>
+                                <th> Transaction Date </th>
+                                <th> Transaction Time </th>
+                                <th> Description </th>
+                            </tr>
+                        </thead>
+
+                        <% if !@wallet.incomes.empty? %>
+                        <tbody>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                          </tbody>
+
+                        <% end %>
+                    </table>
+                <!-- div .table-responsive -->
+                </div>
+                <div id='no-transactions'>
+                    <% if @wallet.incomes.empty? %>
+                        <p align='center'> YOU DONT HAVE ANY TRANSACTIONS YET </p>
+                    <% end %>
+                </div>
+            <!-- div .transactions-body -->
+            </div>
+        </div>
+
+        <div class='col-lg-6 col-sm-6 col-md-12 col-xs-12'>
+            <h3 class='transactions-header-content'>
+                Spendings
+            </h3>
+            <div class='transactions-body'>
+                <div class='table-responsive'>
+                    <table class='table table-hover table-bordered'>
+                        <thead>
+                            <tr>
+                                <th> Transaction Id </th>
+                                <th> Nominal </th>
+                                <th> Transaction Date </th>
+                                <th> Transaction Time </th>
+                                <th> Description </th>
+                            </tr>
+                        </thead>
+
+                        <% if !@wallet.spendings.empty?%>
+                          <tbody>
+                              <tr>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                              </tr>
+                          </tbody>
+                        <% end %>
+                    </table>
+                <!-- div .table responsive -->
+                </div>
+                <div id='no-transactions'>
+                    <% if @wallet.spendings.empty? %>
+                        <p align='center'> YOU DONT HAVE ANY TRANSACTIONS YET </p>
+                    <% end %>
+                </div>
+            <!-- div .transactions-body -->
+            </div>
+        </div>
+    <!-- div .page-content -->
+    </div>
+<!-- div #transaction-containers -->
+</div>
