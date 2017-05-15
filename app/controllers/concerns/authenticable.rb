@@ -12,6 +12,12 @@ module Authenticable
 
   # Rails session based Authentiacble
   def current_authenticatee
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if session[:user_id]
+      @current_authenticatee ||= User.find(session[:user_id])
+    else
+      nil
+    end
   end
+
+
 end
