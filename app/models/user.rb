@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
 
   has_many :api_keys, as: :owner
+  has_many :wallets, as: :owner
 
   def confirmation_expired?
     #3days duration
