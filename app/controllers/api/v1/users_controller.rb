@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::BaseController
-  before_action :authenticate_me!, only: :show
+  before_action :authenticate_me!, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -59,7 +59,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
         #view based rails
         session[:user_id] = @user.id
-        redirect_to v1_user_path(@user.id)
+        redirect_to edit_welcome_path(@user)
       end
     else
       # #api based rails
@@ -74,6 +74,22 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user = current_authenticatee
   end
 
+  def edit
+    @user = current_authenticatee
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to v1_user_path(@user.id)
+    else
+      render 'welcome/edit'
+    end
+  end
+
+  def destroy
+  end
+
   private
   # #API based rails
   # def user_params
@@ -86,7 +102,12 @@ class Api::V1::UsersController < Api::V1::BaseController
                                   :password,
                                   :password_confirmation,
                                   :first_name,
-                                  :last_name
+                                  :last_name,
+                                  :gender,
+                                  :phone_number,
+                                  :city,
+                                  :birthday,
+                                  :profile_picture
                                   )
   end
 
