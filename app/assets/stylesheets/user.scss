@@ -67,3 +67,32 @@
 .panel-black .panel-body a{
   color: #0A0A0A;
 }
+
+// PART 2 USER SHOW AND EDIT PAGE
+.body-header {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.user-picture {
+  border-radius: 50%;
+  height: 150px;
+  width: 150;
+}
+
+.user-full-name {
+  font-size: 17px;
+  margin-bottom: 2px;
+  margin-top: 15px;
+}
+
+.split-form-right {
+  padding-right: 0px !important;
+  padding-left: 7px !important;
+}
+
+.split-form-left {
+  padding-left: 0px !important;
+  padding-right: 7px !important;
+}
