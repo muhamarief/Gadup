@@ -27,10 +27,10 @@
             </a>
             <ul class='dropdown-menu'>
                 <li>
-                  <a href='#'>
-                    <i class='fa fa-user head-icons'></i>
-                    Profile Settings
-                  </a>
+                    <%=link_to edit_v1_user_path(current_authenticatee) do %>
+                        <i class='fa fa-user head-icons'></i>
+                        Profile Settings
+                    <% end %>
                 </li>
                 <li class='divider'></li>
                 <li>

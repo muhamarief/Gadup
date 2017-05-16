@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $('.datepicker').datepicker({
-      
-    });
+$(document).on('turbolinks:load', function() {
+  $('.datepicker').datepicker({
+
   });
+})
