@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
+  resources :welcome, only: :edit
+
   api_version(:module => "Api::V1", :header => {:name => "Accept", :value => "application/vnd.gadup.com; version=1"}, :path => {:value => "v1"} ) do
-    resources :users, only: [:create, :new, :show] do
+    resources :users, only: [:create, :new, :show, :edit, :update, :destroy] do
       member do
         get :confirm_email
       end

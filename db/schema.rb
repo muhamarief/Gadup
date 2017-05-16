@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516004644) do
+ActiveRecord::Schema.define(version: 20170516064607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,7 +85,11 @@ ActiveRecord::Schema.define(version: 20170516004644) do
     t.datetime "updated_at",                             null: false
     t.string   "password_digest",                        null: false
     t.boolean  "email_confirmed",        default: false
-    t.string   "currency",               default: "IDR", null: false
+    t.date     "birthday"
+    t.integer  "gender"
+    t.string   "city"
+    t.string   "profile_picture"
+    t.string   "phone_number"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -93,10 +97,11 @@ ActiveRecord::Schema.define(version: 20170516004644) do
 
   create_table "wallets", force: :cascade do |t|
     t.string   "owner_type"
-    t.integer  "owner_id",                     null: false
-    t.float    "wallet_balance", default: 0.0, null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "owner_id",                       null: false
+    t.float    "wallet_balance", default: 0.0,   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "currency",       default: "IDR", null: false
     t.index ["owner_type", "owner_id"], name: "index_wallets_on_owner_type_and_owner_id", using: :btree
   end
 
