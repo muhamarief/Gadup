@@ -76,3 +76,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
+
+#datepicker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
+#money & currency
+gem 'money-rails', '~>1'
+# gem 'bh', '~> 1.3'
