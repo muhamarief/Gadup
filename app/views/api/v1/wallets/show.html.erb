@@ -30,22 +30,23 @@
 
                                 <div class="modal-body">
                                     <%=form_tag v1_user_wallet_incomes_path(current_authenticatee, @wallet) do %>
-                                        <div class='field'>
+                                        <div class='form-group'>
                                             <%= label_tag :nominal %><br/>
-                                            <%= text_field_tag :nominal %>
+                                            <%= text_field_tag :nominal, '', class: 'form-control' %>
                                         </div>
-                                        <div class='field'>
+                                        <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                                             <%= label_tag :transaction_date %><br/>
-                                            <%= text_field_tag :transaction_date %>
+                                            <%= date_field_tag :transaction_date, '', class: 'form-control' %>
                                         </div>
-                                        <div class='field'>
+                                        <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                                             <%= label_tag :transaction_time %><br/>
-                                            <%= text_field_tag :transaction_time %>
+                                            <%= date_field_tag :transaction_time, '', class: 'form-control' %>
                                         </div>
-                                        <div class='field'>
+                                        <div class='form-group'>
                                             <%= label_tag :description %><br/>
-                                            <%= text_field_tag :description %>
+                                            <%= text_field_tag :description, '', class: 'form-control' %>
                                         </div>
+                                        <select class="input-medium bfh-currencies" data-currency="EUR"></select>
                                     <% end %>
                                 </div>
 
@@ -86,21 +87,21 @@
 
                               <div class="modal-body">
                                   <%=form_tag v1_user_wallet_spendings_path(current_authenticatee, @wallet) do %>
-                                      <div class='field'>
+                                      <div class='form-group'>
                                           <%= label_tag :nominal %><br/>
-                                          <%= text_field_tag :nominal %>
+                                          <%= text_field_tag :nominal, '', class: 'form-control'%>
                                       </div>
-                                      <div class='field'>
+                                      <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                                           <%= label_tag :transaction_date %><br/>
-                                          <%= text_field_tag :transaction_date %>
+                                          <%= date_field_tag :transaction_date, '', class: 'form-control' %>
                                       </div>
-                                      <div class='field'>
+                                      <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                                           <%= label_tag :transaction_time %><br/>
-                                          <%= text_field_tag :transaction_time %>
+                                          <%= date_field_tag :transaction_time, '', class: 'form-control' %>
                                       </div>
-                                      <div class='field'>
+                                      <div class='form-group'>
                                           <%= label_tag :description %><br/>
-                                          <%= text_field_tag :description %>
+                                          <%= text_field_tag :description, '', class: 'form-control' %>
                                       </div>
                                   <% end %>
                               </div>
