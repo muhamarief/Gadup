@@ -1,0 +1,107 @@
+<div id='logo-container'>
+    <center>
+        <%=image_tag 'gadup-logo.png', class: 'logo-standard'%>
+    </center>
+</div>
+<div id='welcome-edit-container'>
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-xs-10 col-sm-6 col-lg-offet-3 col-sm-offset-3 col-xs-offset-1 col-md-offset-3">
+            <div class="panel panel-blue">
+                <div class="panel-heading">
+                    <h4 class="text-center">Update your information for better service in our platform</h4>
+                </div>
+                <div id='user-form-edit' class="panel-body">
+                    <%= form_for [:v1,@user] do |f|%>
+                        <div class='row'>
+                            <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6 split-form-left'>
+                                <label for="first_name">Nama Depan</label>
+
+                                <div class=" form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
+                                        </span>
+                                        <%= f.text_field :first_name, :class=> "form-control", :placeholder => "First Name", required: true %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6 split-form-right'>
+                                <label for="last_name">Nama Belakang</label>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                        <%= f.text_field :last_name, :class=> "form-control", :placeholder => "Last Name", required: true  %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <label for="city">Alamat (kota)</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+                                    <%= f.text_field :city, :class=> "form-control", :placeholder => "Address(city)", required: true %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <label for="phone_number">No Handphone</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                                    <%= f.text_field :phone_number, :class=> "form-control", :placeholder => "Phone Number", required: true  %>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class='row'>
+                            <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6 split-form-right'>
+                                <label for="gender">Jenis Kelamin</label>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <%= f.select :gender, [["Male", "1"], ["Female", "2"]], {}, {class: "form-control"} %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6 split-form-left'>
+                                <label for="birthday">Tanggal Lahir</label>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+                                        <%= f.date_select :birthday, :html=>{class: 'form-control', required: true}, start_year: 1930  %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class='row'>
+                            <label for="profile_picture">Profile Picture</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <%= f.file_field :profile_picture, :class=> "form-control"%>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                <!-- panel body -->
+                </div>
+                <div class='panel-footer'>
+                    <button class="btn btn-lg btn-blue btn-block" type="submit">Save Changes</button>
+                </div>
+            <%end%>
+            <!-- panel panel blue   -->
+            </div>
+        <!-- col-md-4 col-lg-4 col-xs-10 col-sm-4 col-lg-offet-4 col-sm-offset-4 col-xs-offset-1 col-md-offset-4 -->
+        </div>
+    <!-- row -->
+    </div>
+<!-- container -->
+</div>

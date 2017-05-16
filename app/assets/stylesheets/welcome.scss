@@ -1,3 +1,37 @@
 #welcome-user-action {
   margin-top: 50px;
 }
+
+#welcome-edit-container {
+  margin-top: 50px;
+}
+
+.logo-standard {
+  width: 10%;
+  height: 10%;
+}
+
+#logo-container {
+  margin-top: 80px;
+}
+
+.panel-blue {
+  border-color: #379ED7 !important;
+}
+
+.btn-blue:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.btn-blue {
+    color: #fff;
+    background-color: #379ED7;
+    border-color: #379ED7;
+}
+
+#user-form-edit {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
