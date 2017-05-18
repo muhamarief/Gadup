@@ -15,7 +15,7 @@
                 </div>
                 <div class="panel-body">
                     <a href='#' data-toggle='modal' data-target="#incomeModal">
-                      Add Income information
+                      Add Income Information
                       <i class="fa fa-arrow-right pull-right" aria-hidden="true"></i>
                     </a>
 
@@ -23,35 +23,52 @@
                         <div class="modal-dialog">
 
                             <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Add Income</h4>
-                                </div>
+                              <%=form_for [:v1, current_authenticatee, @wallet, @income] do |f| %>
 
-                                <div class="modal-body">
-                                    <%=form_tag v1_user_wallet_incomes_path(current_authenticatee, @wallet) do %>
-                                        <div class='form-group'>
-                                            <%= label_tag :nominal %><br/>
-                                            <%= text_field_tag :nominal, '', class: 'form-control' %>
-                                        </div>
-                                        <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
-                                            <%= label_tag :transaction_date %><br/>
-                                            <%= date_field_tag :transaction_date, '', class: 'form-control datepicker' %>
-                                        </div>
-                                        <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
-                                            <%= label_tag :transaction_time %><br/>
-                                            <%= date_field_tag :transaction_time, '', class: 'form-control' %>
-                                        </div>
-                                        <div class='form-group'>
-                                            <%= label_tag :description %><br/>
-                                            <%= text_area_tag :description, '', class: 'form-control' %>
-                                        </div>
-                                    <% end %>
-                                </div>
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Add Income</h4>
+                                  </div>
 
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
+                                  <div class="modal-body">
+                                      <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                          <%= f.label :nominal %><br/>
+                                          <%= f.text_field :nominal, class: 'form-control' %>
+                                      </div>
+                                      <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                          <%= f.label :income_type %><br/>
+                                          <%= f.select :income_type, [["One-Stop", 1], ["Monthly", 2]], {}, {class: 'form-control'} %>
+                                      </div>
+
+                                      <!-- <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                          <%= label_tag :transaction_date %><br/>
+                                          <%= text_field_tag :transaction_date, '', class: 'form-control datepicker1' %>
+                                      </div> -->
+                                      <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                          <%= f.label :transaction_date %><br/>
+                                          <%= f.date_field :transaction_date, class: 'form-control' %>
+                                      </div>
+
+                                      <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                        <!-- <div class="input-group bootstrap-timepicker timepicker">
+                                            <input id="timepicker1" type="text" class="form-control input-small">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                        </div> -->
+                                          <%= f.label :transaction_time %><br/>
+                                          <%= f.time_field :transaction_time, class: 'form-control', value: "%H:%M", min: 'hh:mm:ss', max: 'hh:mm:ss'%>
+                                      </div>
+                                      <div class='form-group'>
+                                          <%= f.label :description %><br/>
+                                          <%= f.text_area :description, class: 'form-control' %>
+                                      </div>
+                                  </div>
+
+                                  <div class="modal-footer">
+                                    <button class="btn btn-lg btn-blue btn-block" type="submit">Save</button>
+                                  </div>
+                              <% end %>
+
+
                             <!-- Modal content-->
                             </div>
                         </div>
@@ -71,7 +88,7 @@
                 </div>
                 <div class="panel-body">
                   <a href='#' data-toggle='modal' data-target="#spendingModal">
-                    Add Spendings information
+                    Add Spendings Information
                     <i class="fa fa-arrow-right pull-right" aria-hidden="true"></i>
                   </a>
 
@@ -79,35 +96,49 @@
                       <div class="modal-dialog">
 
                           <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Add Income</h4>
-                              </div>
+                              <%=form_for [:v1, current_authenticatee, @wallet, @spending] do |f| %>
 
-                              <div class="modal-body">
-                                  <%=form_tag v1_user_wallet_spendings_path(current_authenticatee, @wallet) do %>
-                                      <div class='form-group'>
-                                          <%= label_tag :nominal %><br/>
-                                          <%= text_field_tag :nominal, '', class: 'form-control'%>
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Add Spending</h4>
+                                  </div>
+
+                                  <div class="modal-body">
+                                      <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                          <%= f.label :nominal %><br/>
+                                          <%= f.text_field :nominal, class: 'form-control' %>
                                       </div>
                                       <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                          <%= f.label :spending_type %><br/>
+                                          <%= f.select :spending_type, [["One-Stop", 1], ["Monthly", 2]], {}, {class: 'form-control'} %>
+                                      </div>
+
+                                      <!-- <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                                           <%= label_tag :transaction_date %><br/>
-                                          <%= date_field_tag :transaction_date, '', class: 'form-control datepicker' %>
+                                          <%= text_field_tag :transaction_date, '', class: 'form-control datepicker1' %>
+                                      </div> -->
+                                      <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                          <%= f.label :spending_date %><br/>
+                                          <%= f.date_field :spending_date, class: 'form-control' %>
                                       </div>
                                       <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
-                                          <%= label_tag :transaction_time %><br/>
-                                          <%= date_field_tag :transaction_time, '', class: 'form-control' %>
+                                        <!-- <div class="input-group bootstrap-timepicker timepicker">
+                                            <input id="timepicker1" type="text" class="form-control input-small">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                        </div> -->
+                                          <%= f.label :spending_time %><br/>
+                                          <%= f.time_field :spending_time, class: 'form-control', value: "%H:%M", min: 'hh:mm:ss', max: 'hh:mm:ss'%>
                                       </div>
                                       <div class='form-group'>
-                                          <%= label_tag :description %><br/>
-                                          <%= text_area_tag :description, '', class: 'form-control' %>
+                                          <%= f.label :description %><br/>
+                                          <%= f.text_area :description, class: 'form-control' %>
                                       </div>
-                                  <% end %>
-                              </div>
+                                  </div>
 
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              </div>
+                                  <div class="modal-footer">
+                                    <button class="btn btn-lg btn-blue btn-block" type="submit">Save</button>
+                                  </div>
+                              <% end %>
                           <!-- Modal content-->
                           </div>
                       </div>
@@ -129,24 +160,25 @@
                     <table class='table table-hover table-bordered'>
                         <thead>
                             <tr>
-                                <th> Transaction Id </th>
+                                <th> Id </th>
                                 <th> Nominal </th>
-                                <th> Transaction Date </th>
-                                <th> Transaction Time </th>
+                                <th> Date</th>
+                                <th> Time </th>
                                 <th> Description </th>
                             </tr>
                         </thead>
 
                         <% if !@wallet.incomes.empty? %>
-                        <tbody>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <tbody>
+                                <% @wallet.incomes.each do |income| %>
+                                    <tr>
+                                        <td><%=income.id%></td>
+                                        <td><%=income.nominal%></td>
+                                        <td><%=income.transaction_date%></td>
+                                        <td><%=income.transaction_time%></td>
+                                        <td><%=income.description%></td>
+                                    </tr>
+                                <% end %>
                           </tbody>
 
                         <% end %>
@@ -169,26 +201,27 @@
             <div class='transactions-body'>
                 <div class='table-responsive'>
                     <table class='table table-hover table-bordered'>
-                        <thead>
-                            <tr>
-                                <th> Transaction Id </th>
-                                <th> Nominal </th>
-                                <th> Transaction Date </th>
-                                <th> Transaction Time </th>
-                                <th> Description </th>
-                            </tr>
-                        </thead>
-
+                      <thead>
+                          <tr>
+                              <th align='right'> Id </th>
+                              <th align='center'> Nominal </th>
+                              <th align='center'> Date</th>
+                              <th align='right'> Time </th>
+                              <th align='center'> Description </th>
+                          </tr>
+                      </thead>
                         <% if !@wallet.spendings.empty?%>
-                          <tbody>
-                              <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                              </tr>
-                          </tbody>
+                            <tbody>
+                                <%@wallet.spendings.each do |spending|%>
+                                    <tr>
+                                        <td><%=spending.id%></td>
+                                        <td><%=spending.nominal%></td>
+                                        <td><%=spending.spending_date%></td>
+                                        <td><%=spending.spending_time%></td>
+                                        <td><%=spending.description%></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
                         <% end %>
                     </table>
                 <!-- div .table responsive -->

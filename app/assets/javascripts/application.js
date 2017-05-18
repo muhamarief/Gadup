@@ -20,3 +20,4 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require bootstrap-datepicker
+//= require bootstrap-timepicker
