@@ -5,6 +5,7 @@ class Api::V1::IncomesController < Api::V1::BaseController
     @wallet = current_authenticatee.wallets.first
     @income = Income.new(income_params)
     @income.wallet_id = params[:wallet_id]
+    byebug
     if @income.save
       redirect_to v1_user_wallet_path(@user, @wallet)
     else
@@ -17,7 +18,6 @@ class Api::V1::IncomesController < Api::V1::BaseController
   def income_params
     params.require(:income).permit( :wallet_id,
                                     :nominal,
-                                    :transaction_date,
                                     :transaction_time,
                                     :description,
                                     :currency,
