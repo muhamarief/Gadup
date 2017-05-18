@@ -42,8 +42,7 @@ ActiveRecord::Schema.define(version: 20170517041726) do
 
   create_table "incomes", force: :cascade do |t|
     t.float    "nominal",                          null: false
-    t.date     "transaction_date",                 null: false
-    t.time     "transaction_time",                 null: false
+    t.datetime "transaction_time",                 null: false
     t.integer  "wallet_id",                        null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
@@ -56,8 +55,7 @@ ActiveRecord::Schema.define(version: 20170517041726) do
 
   create_table "spendings", force: :cascade do |t|
     t.float    "nominal",                       null: false
-    t.date     "spending_date",                 null: false
-    t.time     "spending_time",                 null: false
+    t.datetime "spending_time",                 null: false
     t.integer  "wallet_id",                     null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false

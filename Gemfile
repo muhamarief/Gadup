@@ -15,7 +15,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 
 # # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -73,14 +73,10 @@ gem "daemons"
 
 #bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '>= 3.2'
+# gem 'sass-rails', '>= 3.2'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
 
 #datepicker & timepicker
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
-gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
-                              :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
-gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
