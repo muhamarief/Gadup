@@ -5,3 +5,13 @@ body {
 html, body {
   height: 100%;
 }
+
+#welcome-user {
+  // background: url('welcome-user-background.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('welcome-user-background.jpg');
+  background-size: cover;
+}
+
+th {
+  text-align: center !important;
+}
