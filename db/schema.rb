@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516064607) do
+ActiveRecord::Schema.define(version: 20170517041726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,26 +41,30 @@ ActiveRecord::Schema.define(version: 20170516064607) do
   end
 
   create_table "incomes", force: :cascade do |t|
-    t.float    "nominal",          null: false
-    t.date     "transaction_date", null: false
-    t.time     "transaction_time", null: false
-    t.integer  "wallet_id",        null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.float    "nominal",                          null: false
+    t.date     "transaction_date",                 null: false
+    t.time     "transaction_time",                 null: false
+    t.integer  "wallet_id",                        null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "description"
     t.json     "photos"
+    t.string   "currency",         default: "IDR", null: false
+    t.integer  "income_type",                      null: false
     t.index ["wallet_id"], name: "index_incomes_on_wallet_id", using: :btree
   end
 
   create_table "spendings", force: :cascade do |t|
-    t.float    "nominal",       null: false
-    t.date     "spending_date", null: false
-    t.time     "spending_time", null: false
-    t.integer  "wallet_id",     null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.float    "nominal",                       null: false
+    t.date     "spending_date",                 null: false
+    t.time     "spending_time",                 null: false
+    t.integer  "wallet_id",                     null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "description"
     t.json     "photos"
+    t.string   "currency",      default: "IDR", null: false
+    t.integer  "spending_type",                 null: false
     t.index ["wallet_id"], name: "index_spendings_on_wallet_id", using: :btree
   end
 
@@ -97,11 +101,10 @@ ActiveRecord::Schema.define(version: 20170516064607) do
 
   create_table "wallets", force: :cascade do |t|
     t.string   "owner_type"
-    t.integer  "owner_id",                       null: false
-    t.float    "wallet_balance", default: 0.0,   null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "currency",       default: "IDR", null: false
+    t.integer  "owner_id",                     null: false
+    t.float    "wallet_balance", default: 0.0, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["owner_type", "owner_id"], name: "index_wallets_on_owner_type_and_owner_id", using: :btree
   end
 
