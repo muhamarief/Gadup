@@ -19,6 +19,9 @@ Bundler.require(*Rails.groups)
 module GadupApi
   class Application < Rails::Application
 
+    config.time_zone = 'Jakarta'
+    config.active_record.default_timezone = :local
+
     config.active_job.queue_adapter = :delayed_job
 
     config.generators do |g|
