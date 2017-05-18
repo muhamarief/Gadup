@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   # validates :password, length: { in: 6..20 }
   validates :password, presence: true, on: :create
+  validates :phone_number, uniqueness: true
 
   has_many :api_keys, as: :owner
   has_many :wallets, as: :owner
