@@ -17,7 +17,6 @@ class Api::V1::SpendingsController < Api::V1::BaseController
   def spending_params
     params.require(:spending).permit( :wallet_id,
                                       :nominal,
-                                      :spending_date,
                                       :spending_time,
                                       :description,
                                       :currency,
