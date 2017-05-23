@@ -1,34 +1,140 @@
-<center>
-  <h2> Selamat Datang di Gadup Indonesia </h2>
-  <h3> Asisten pribadi untuk managemen keuangan dan hidup anda </h3>
-</center>
-
-<div class="container">
-    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" id='welcome-user-action'>
-        <div class='row'>
-            <div class='col-md-6 col-xs-6 col-sm-6'>
-              <p> Social Media Buttons
+<div class='hero-image'>
+    <div id='welcome-header'>
+        <nav class="navbar navbar-fixed-top clearNav">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="logo navbar-brand" href="#">
+                      <%=image_tag('big-logo.png', id: 'logo-header')%>
+                    </a>
+                <!-- div .navbar-header -->
+                </div>
+                <div class='header-links hidden-xs'>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href='#'>
+                                Why Join Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#'>
+                                For Customers
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#'>
+                                For Vendors
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#'>
+                                News
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class='btn-header'>
+                            <%= link_to 'User Login', hello_user_welcome_index_path, class: 'header-auth'%>
+                        </li>
+                        <li class='btn-header'>
+                            <%= link_to 'Vendor Login', hello_vendor_welcome_index_path, class: 'header-auth' %>
+                        </li>
+                    </ul>
+                <!-- div .header-links hidden-xs -->
+                </div>
+            <!-- div .container-fluid -->
             </div>
-
-            <div class='col-md-6 col-xs-6 col-sm-6'>
-                <center>
-                    <h4> Silahkan Masukkan Email dan Password anda </h4>
-                </center>
-                
-                <%= form_tag v1_auth_users_path do %>
-                    <%= label_tag :email%>
-                    <%= text_field_tag :email%></br>
-
-                    <%= label_tag :password %>
-                    <%= password_field_tag :password %>
-                    <div class="actions"><%= submit_tag "Log In" %></div>
-                <% end %>
-
-            </div>
-            <%=link_to "bergabung dengan email pribadi", new_v1_user_path %>
-        <!-- div .row -->
-        </div>
-    <!-- div #welcome-user-action -->
+        <!-- nav #welcome-nav -->
+        </nav>
+    <!-- div #welcome-header -->
     </div>
-<!-- div .container -->
+    <div class='col-md-8 col-sm-8 col-xs-12 col-lg-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 hero-text'>
+        <h1> Makes Life Easy </h1>
+        <h3> We Provide Better Solution For Everyone </h3>
+
+    <!-- div .hero-text -->
+    </div>
+        <div id='hero-btn' class='col-md-8 col-sm-8 col-xs-12 col-lg-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2'>
+
+            <div class='col-md-5 col-xs-12' id='hi-user'>
+              <%= link_to hello_user_welcome_index_path do %>
+
+                <div class='action-container'>
+
+                    <span class="glyphicon glyphicon-user" id='size-glyphicon' aria-hidden="true"></span>
+                    <h4> Hi! Im A Customer </h4>
+                    <p> Log me in as a customer </p>
+
+                </div>
+              <% end %>
+
+            <!-- div #hi-user -->
+            </div>
+            <div class='col-md-2'>
+            </div>
+
+            <div class='col-md-5 col-xs-12' id='hi-vendor'>
+                <%= link_to hello_vendor_welcome_index_path do %>
+                    <div class='action-container'>
+                        <span class="glyphicon glyphicon-briefcase" id='size-glyphicon' aria-hidden="true"></span>
+                        <h4> Hi! Im A Vendor </h4>
+                        <p> Log me in as a vendor </p>
+                    </div>
+                <% end%>
+            <!-- div #hi-vendor -->
+            </div>
+        </div>
+    </div>
+<!-- div .hero-image -->
+</div>
+
+<div id='why-us'>
+    <div class='header-element'>
+        <h2> This Will be The Why Us </h2>
+    </div>
+    <div class='body-element'>
+      <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
+        <center>
+            <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
+            <h4 class='head-desc'>
+              <span> LOREM IPSUM </span>
+            </h4>
+            <p class='body-desc'>
+              <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
+            </p>
+        </center>
+      </div>
+        <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
+            <center>
+                <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
+                <h4 class='head-desc'>
+                  <span> LOREM IPSUM </span>
+                </h4>
+                <p class='body-desc'>
+                  <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
+                </p>
+            </center>
+        </div>
+        <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
+          <center>
+              <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
+              <h4 class='head-desc'>
+                <span> LOREM IPSUM </span>
+              </h4>
+              <p class='body-desc'>
+                <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
+              </p>
+          </center>
+        </div>
+        <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
+          <center>
+              <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
+              <h4 class='head-desc'>
+                <span> LOREM IPSUM </span>
+              </h4>
+              <p class='body-desc'>
+                <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
+              </p>
+          </center>
+        </div>
+    </div>
 </div>
