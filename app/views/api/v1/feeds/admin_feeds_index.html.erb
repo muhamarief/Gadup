@@ -1,0 +1,82 @@
+<%= render template: "api/v1/component/_header_admins.html.erb"%>
+
+<div class='col-md-8 col-lg-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2'>
+    <div class='row'>
+        <div class='col-md-8 col-sm-8 col-lg-8 col-xs-10'>
+            <h2 class='headers-text'> NEWS <small> Feeds </small> </h2>
+        <!-- div .col-md-8 col-sm-8 col-lg-8 col-xs-10 -->
+        </div>
+        <div class='btn-admin col-md-4 col-sm-4 col-lg-4 col-xs-2'>
+            <button type="button" class="btn btn-info btn-md pull-right" align='center' data-toggle="modal" data-target="#feedModal">Add New Feed</button>
+
+            <div class="modal fade" id="feedModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Create A Feed</h4>
+                        </div>
+                        <%= form_for [:v1,current_authenticatee,@feed] do |f| %>
+                            <div class="modal-body">
+                                <div class='form-group'>
+                                    <%= f.label :name %><br/>
+                                    <%= f.text_field :name, class:'form-control' %>
+                                </div>
+
+                                <div class='form-group'>
+                                    <%= f.label :url %><br/>
+                                    <%= f.text_field :url, class:'form-control' %>
+                                </div>
+
+                                <div class='form-group'>
+                                    <%= f.label :description %><br/>
+                                    <%= f.text_field :description, class:'form-control' %>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-lg btn-success btn-block" type="submit">Save</button>
+                            </div>
+                        <% end %>
+                    <!-- div .modal-content -->
+                    </div>
+                <!-- div .modal-dialog -->
+                </div>
+            <!-- div .modal-fade -->
+            </div>
+        <!-- div .col-md-4 col-sm-4 col-lg-4 col-xs-2-->
+        </div>
+    </div>
+
+
+
+
+
+    <div class='jumbotron'>
+        <% if @feeds.length < 1 %>
+            <center>
+                <p> WE DONT HAVE ENTRIES YET </p>
+            </center>
+        <% else %>
+            <% @feeds.each do |feed| %>
+                <div class='admin-entries'>
+                    <div class='entry-texts'>
+                        <h3>
+                          <%= feed.name %>
+                          <small> <%= feed.url %> </small>
+                        </h3>
+                        <p class='entry-desc'> <%= feed.description %> </p>
+                    <!-- div .entry-texts -->
+                    </div>
+                    <div class='entry-links'>
+                        <%= link_to "#{feed.entries.count} Entries", v1_feed_path(feed) %>
+                    <!-- div .entry-links -->
+                    </div>
+                </div>
+
+            <% end %>
+        <% end %>
+    <!-- div .jumbotron -->
+    </div>
+<!-- div .col-md-8 col-lg-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2 -->
+</div>
