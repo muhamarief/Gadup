@@ -1,0 +1,72 @@
+// PART 1 ADMIN-Feeds INDEX
+.row {
+  padding-bottom: 9px;
+}
+
+.headers-text {
+  padding-left: 20px;
+}
+
+.jumbotron {
+  border-radius: 8px;
+}
+
+.btn-admin {
+  padding-top: 20px;
+}
+
+.entry-desc {
+  font-size: 15px !important;
+}
+
+.admin-entries {
+  padding-left: 35px;
+}
+
+// PART 2 ADMIN-Feeds Show
+.feed-entries {
+  margin-top: 75px;
+}
+
+.entry-image {
+  height: 170px;
+  width: 100%;
+}
+
+.entry-links {
+  margin-bottom: 10px;
+}
+.entry-title {
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+  width: inherit;
+}
+
+.entry-title:hover {
+  text-decoration: none;
+}
+
+.entry-content {
+  font-weight: normal;
+  line-height: 1;
+  color: #444;
+}
+
+.entry-info {
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .entry-grid {
+    padding: 17px 0 50px;
+    min-height: 333px;
+    position: relative;
+    box-sizing: border-box;
+    float: left;
+    width: 31.333%;
+    margin: 0 1%;
+  }
+}
