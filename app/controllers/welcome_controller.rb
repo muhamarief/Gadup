@@ -15,12 +15,15 @@ class WelcomeController < ApplicationController
     @user = current_authenticatee
   end
 
-  def show_user
+  def auth_user
     @user = User.new
-
   end
 
-  def show_vendor
+  def auth_admin
+    @admin = Admin.new
+  end
+
+  def auth_vendor
     @vendor
   end
 
