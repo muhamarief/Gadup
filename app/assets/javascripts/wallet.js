@@ -6,4 +6,4 @@ $(document).on('turbolinks:load', function() {
   $('#datetimepicker2').datetimepicker({
     format: 'YYYY-MM-DD HH:mm'
   });
-})
+});
