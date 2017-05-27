@@ -70,4 +70,6 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: 'abc@gmail.com'}
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
+  #subdomains
+  config.action_dispatch.tld_length = 0
 end
