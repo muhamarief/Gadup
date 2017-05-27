@@ -1,5 +1,6 @@
 class Api::V1::FeedsController < Api::V1::BaseController
   before_action :authenticate_admin!, only: [:create, :update, :destroy]
+  layout :reslove_layout
 
   def create
     @feed = Feed.new(feed_params)
@@ -38,6 +39,17 @@ class Api::V1::FeedsController < Api::V1::BaseController
   private
   def feed_params
     params.require(:feed).permit(:name, :url, :description)
+  end
+
+  def reslove_layout
+    case action_name
+    when "index", "show"
+      if current_authenticatee.kind_of?(Admin)
+        "admin"
+      else
+        "application"
+      end
+    end
   end
 
 end
