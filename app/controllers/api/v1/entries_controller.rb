@@ -14,13 +14,8 @@ class Api::V1::EntriesController < Api::V1::BaseController
   end
 
   def index
-    @entries = Entry.all
-    if current_authenticatee.kind_of?(User)
-      render "user_entries"
-    elsif current_authenticatee.kind_of?(Admin)
-      @entry = Entry.new
-      render "admin_entries"
-    end
+    @entries = Entry.all.order('published DESC').limit(20)
+    @entries_array = @entries[1..-1].each_slice(3).to_a
   end
 
   def update
