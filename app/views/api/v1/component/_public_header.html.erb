@@ -1,0 +1,44 @@
+<div class='welcome-header'>
+    <nav class="navbar navbar-fixed-top darkNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="logo navbar-brand" href="#">
+                  <%=image_tag('big-logo.png', id: 'logo-header')%>
+                </a>
+            <!-- div .navbar-header -->
+            </div>
+            <div class='header-links hidden-xs'>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <%= link_to 'Home', root_path %>
+                    </li>
+                    <li>
+                        <a href='#'>
+                            Promo
+                        </a>
+                    </li>
+                    <li>
+                        <a href='#'>
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <%= link_to 'News', v1_entries_path %>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class='btn-header'>
+                        <%= link_to 'User Login', hello_user_welcome_index_path, class: 'header-auth'%>
+                    </li>
+                    <li class='btn-header'>
+                        <%= link_to 'Vendor Login', hello_vendor_welcome_index_path, class: 'header-auth' %>
+                    </li>
+                </ul>
+            <!-- div .header-links hidden-xs -->
+            </div>
+        <!-- div .container-fluid -->
+        </div>
+    <!-- nav #welcome-nav -->
+    </nav>
+<!-- div #welcome-header -->
+</div>

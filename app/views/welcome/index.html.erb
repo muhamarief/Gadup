@@ -1,5 +1,5 @@
 <div class='hero-image'>
-    <div id='welcome-header'>
+    <div class='welcome-header'>
         <nav class="navbar navbar-fixed-top clearNav">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -11,24 +11,20 @@
                 <div class='header-links hidden-xs'>
                     <ul class="nav navbar-nav">
                         <li>
+                          <%= link_to 'Home', root_path %>
+                        </li>
+                        <li>
                             <a href='#'>
-                                Why Join Us
+                                Promo
                             </a>
                         </li>
                         <li>
                             <a href='#'>
-                                For Customers
+                                About Us
                             </a>
                         </li>
                         <li>
-                            <a href='#'>
-                                For Vendors
-                            </a>
-                        </li>
-                        <li>
-                            <a href='#'>
-                                News
-                            </a>
+                            <%= link_to 'News', v1_entries_path %>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -47,6 +43,7 @@
         </nav>
     <!-- div #welcome-header -->
     </div>
+
     <div class='col-md-8 col-sm-8 col-xs-12 col-lg-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 hero-text'>
         <h1> Makes Life Easy </h1>
         <h3> We Provide Better Solution For Everyone </h3>

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resources :entries, except: :create
     end
 
+    #users pages
     resources :users do
       member do
         get :confirm_email
@@ -33,7 +34,9 @@ Rails.application.routes.draw do
         resources :spendings, only: :create
       end
     end
+    resources :entries, only: :index
 
+    #authentication pages
     namespace :auth do
       resources :users, only: [:new, :create, :destroy]
       resources :admins, only: [:new, :create, :destroy], constraints: { subdomain: 'admin' }
