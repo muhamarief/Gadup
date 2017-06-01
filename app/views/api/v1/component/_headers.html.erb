@@ -7,6 +7,15 @@
             </a>
         <!-- div .branding -->
         </div>
+        <div class='main-links'>
+            <%= link_to 'Dashboard', root_path%>
+            <%= link_to 'Wallets', v1_user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) %>
+            <%=link_to 'News', v1_entries_path%>
+            <a href="#">
+                Promo
+            </a>
+        <!-- div .main-links -->
+        </div>
     <!-- div .left-header -->
     </div>
     <div class='right-header pull-right'>
