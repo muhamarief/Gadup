@@ -145,8 +145,12 @@
   margin-top: 40px;
 }
 
-.welcome-entry a {
+.title-entry__container a {
   color: black;
+}
+
+.image-entry__container {
+  height: 160px;
 }
 
 .welcome-entry a:hover {
@@ -158,8 +162,9 @@
   height: 100%;
 }
 
-.info-enrtry {
-  font-size: 15px;
+.info-entry {
+  font-size: 15px !important;
+  color: #337ab7 !important;
 }
 
 @media only screen and (min-width: 768px) {
@@ -187,6 +192,7 @@
 }
 
 #why-us {
+  margin-top: 50px;
   margin-left: 20px;
   margin-right: 20px;
 }
