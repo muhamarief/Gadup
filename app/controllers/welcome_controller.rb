@@ -7,10 +7,8 @@ class WelcomeController < ApplicationController
     elsif current_authenticatee && !info_updated?
       redirect_to edit_welcome_path(current_authenticatee)
     else
-      if Entry.all.count > 0
-        @entries = Entry.all.order('published DESC').limit(8)
-        @entries_array = @entries.each_slice(4).to_a
-      end
+      @entries = Entry.all.order('published DESC').limit(8)
+      @entries_array = @entries.each_slice(4).to_a
       render :index
     end
   end
