@@ -45,44 +45,50 @@
     </div>
 
     <div class='col-md-8 col-sm-8 col-xs-12 col-lg-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 hero-text'>
-        <h1> Makes Life Easy </h1>
-        <h3> We Provide Better Solution For Everyone </h3>
-
-    <!-- div .hero-text -->
-    </div>
-        <div id='hero-btn' class='col-md-8 col-sm-8 col-xs-12 col-lg-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2'>
-
-            <div class='col-md-5 col-xs-12' id='hi-user'>
-              <%= link_to hello_user_welcome_index_path do %>
-
-                <div class='action-container'>
-
-                    <span class="glyphicon glyphicon-user" id='size-glyphicon' aria-hidden="true"></span>
-                    <h4> Hi! Im A Customer </h4>
-                    <p> Log me in as a customer </p>
-
-                </div>
-              <% end %>
-
-            <!-- div #hi-user -->
-            </div>
-            <div class='col-md-2'>
-            </div>
-
-            <div class='col-md-5 col-xs-12' id='hi-vendor'>
-                <%= link_to hello_vendor_welcome_index_path do %>
-                    <div class='action-container'>
-                        <span class="glyphicon glyphicon-briefcase" id='size-glyphicon' aria-hidden="true"></span>
-                        <h4> Hi! Im A Vendor </h4>
-                        <p> Log me in as a vendor </p>
-                    </div>
-                <% end%>
-            <!-- div #hi-vendor -->
-            </div>
-        </div>
+        <h1> Platform Untuk Menyusun Finansial Anda </h1>
+        <h3> Kami menyediakan solusi terbaik untuk semua </h3>
+    <!-- div .col-md-8 col-sm-8 col-xs-12 col-lg-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 hero-text -->
     </div>
 <!-- div .hero-image -->
 </div>
+
+<div id='welcome-entries' class='col-md-10 col-lg-10 col-sm-10 col-xs-10 col-md-offset-1 col-lg-offset-1 col-xs-offset-1'>
+    <div class='header-element'>
+        <h3> News </h3>
+    </div>
+    <% @entries_array.each do |entries| %>
+        <div class='row'>
+            <% entries.each do |entry| %>
+                <div class='welcome-entry'>
+                    <%= link_to entry.entries_url do %>
+                        <%= image_tag entry.image_url, class: 'welcome-image-entry' %>
+                    <% end %>
+                    <%= link_to entry.entries_url do %>
+                        <h5> <%= entry.title %> </h5>
+                    <% end %>
+                    <div class='row'>
+                        <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6'>
+                            <%= link_to entry.feed.url do %>
+                                <p class='info-entry'>
+                                    <%= entry.feed.name %>
+                                </p>
+                            <% end %>
+                        </div>
+                        <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6 author'>
+                            <p class='info-entry'>
+                                <%= entry.author%>
+                            </p>
+                        </div>
+                    </div>
+                    <%= entry.content %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+
+<!-- div #welcome-entries -->
+</div>
+
 
 <div id='why-us'>
     <div class='header-element'>

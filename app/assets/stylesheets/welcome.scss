@@ -40,7 +40,7 @@
 // PART 2 WELCOME#INDEX
 .hero-image {
   background-image: linear-gradient( rgba(0, 0, 0, 0.23), rgba(0, 0, 0, 0.23) ), url("welcome-user-background.jpg");
-  height: 90%;
+  height: 60%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -105,7 +105,7 @@
   text-align: center;
   position: absolute;
   color: white;
-  padding-top: 100px;
+  padding-top: 170px;
 }
 
 #hero-btn {
@@ -141,6 +141,50 @@
   padding-bottom: 30px;
 }
 
+#welcome-entries {
+  margin-top: 40px;
+}
+
+.welcome-entry a {
+  color: black;
+}
+
+.welcome-entry a:hover {
+  text-decoration: none;
+}
+
+.welcome-image-entry {
+  width: 100%;
+  height: 100%;
+}
+
+.info-enrtry {
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .welcome-entry {
+    padding: 17px 0 50px;
+    min-height: 333px;
+    position: relative;
+    box-sizing: border-box;
+    float: left;
+    width: 23%;
+    margin: 0 1%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .each-entry {
+    max-width: 313px;
+    padding: 18px;
+    margin: auto;
+    position: relative;
+  }
+  .news {
+    margin-top: 20px;
+  }
+}
 
 #why-us {
   margin-left: 20px;
