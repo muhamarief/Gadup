@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  authenticated :user do
+    root :to => 'users#show'
+  end
   root 'welcome#index'
 
   devise_for :users

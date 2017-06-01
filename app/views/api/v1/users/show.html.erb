@@ -1,7 +1,6 @@
 <%= render template: "api/v1/component/_headers"%>
-<%= render template: "api/v1/component/_dashboardnav.html.erb"%>
 
-<div id='dashboard-container' class='col-md-10 col-sm-10 col-lg-10 col-xs-12'>
+<div id='dashboard-container' class='col-md-10 col-sm-10 col-lg-10 col-xs-12 col-md-offset-1 col-sm-offset-1 col-lg-offset-1'>
     <div class='dashboard-header'>
         <h2 class='dashboard-header-context'> DASHBOARD <small> Statistic Overview </small></h2>
     <!-- div .dashboard-head -->
@@ -73,6 +72,35 @@
         </div>
     <!-- div .row -->
     </div>
+    <div id='dashboard-wallet'>
+        <div id='wallet-summary'>
+            <div class='select-date'>
+                <%@this_week.each do |date| %>
+                    <% if date == Date.today %>
+                        <a class='current' href='#'>
+                          Today
+                        </a>
+                    <% else %>
+                        <a href='#'>
+                          <%= date %>
+                        </a>
+                    <% end %>
 
+                <% end %>
+            </div>
+            <div class='col-md-6 col-lg-6 col-sm-12 col-xs-12'>
+            </div>
+            <div class='col-md-6 col-lg-6 col-sm-12 col-xs-12'>
+            </div>
+        <!-- div #wallet-summary -->
+        </div>
+        <div class='col-md-6 col-lg-6 col-sm-12 col-xs-12'>
+            <div class='container'>
+
+            <!-- div .container -->
+            </div>
+        </div>
+    <!-- div #dashboard-wallet -->
+    </div>
 <!-- div #dashboard-container -->
 </div>
