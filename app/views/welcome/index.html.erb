@@ -56,56 +56,47 @@
     <div class='header-element'>
         <h3> News </h3>
     </div>
-    <% @entries_array.each do |entries| %>
-        <div class='row'>
-            <% entries.each do |entry| %>
-                <div class='welcome-entry'>
-                    <%= link_to entry.entries_url do %>
-                        <%= image_tag entry.image_url, class: 'welcome-image-entry' %>
-                    <% end %>
-                    <%= link_to entry.entries_url do %>
-                        <h5> <%= entry.title %> </h5>
-                    <% end %>
-                    <div class='row'>
-                        <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6'>
-                            <%= link_to entry.feed.url do %>
-                                <p class='info-entry'>
-                                    <%= entry.feed.name %>
-                                </p>
+    <% if !@entries_array.nil?%>
+
+        <% @entries_array.each do |entries| %>
+            <div class='row'>
+                <% entries.each do |entry| %>
+                    <div class='welcome-entry'>
+                        <div class='image-entry__container'>
+                            <%= link_to entry.entries_url do %>
+                                <%= image_tag entry.image_url, class: 'welcome-image-entry' %>
                             <% end %>
                         </div>
-                        <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6 author'>
-                            <p class='info-entry'>
-                                <%= entry.author%>
-                            </p>
+                        <div class='title-entry__container'>
+                            <%= link_to entry.entries_url do %>
+                                <h5> <%= entry.title %> </h5>
+                            <% end %>
+                        </div>
+                        <div class='row entry-info'>
+                            <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6'>
+                                <%= link_to "#{entry.feed.url}", entry.feed.name %>
+                            </div>
+                            <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6 author'>
+                              <%= @entries.first.author%>
+                            </div>
+                        </div>
+                        <div class='content-entry__container'>
+                            <%= entry.content %>
                         </div>
                     </div>
-                    <%= entry.content %>
-                </div>
-            <% end %>
-        </div>
+                <% end %>
+            </div>
+        <% end %>
     <% end %>
-
 <!-- div #welcome-entries -->
 </div>
-
 
 <div id='why-us'>
     <div class='header-element'>
         <h2> This Will be The Why Us </h2>
     </div>
+
     <div class='body-element'>
-      <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
-        <center>
-            <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
-            <h4 class='head-desc'>
-              <span> LOREM IPSUM </span>
-            </h4>
-            <p class='body-desc'>
-              <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
-            </p>
-        </center>
-      </div>
         <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
             <center>
                 <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
@@ -117,6 +108,19 @@
                 </p>
             </center>
         </div>
+
+        <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
+            <center>
+                <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
+                <h4 class='head-desc'>
+                  <span> LOREM IPSUM </span>
+                </h4>
+                <p class='body-desc'>
+                  <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
+                </p>
+            </center>
+        </div>
+
         <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
           <center>
               <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
@@ -128,6 +132,7 @@
               </p>
           </center>
         </div>
+
         <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
           <center>
               <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
@@ -140,4 +145,5 @@
           </center>
         </div>
     </div>
+<!-- div #why-us -->
 </div>
