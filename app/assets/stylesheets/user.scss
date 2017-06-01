@@ -1,6 +1,11 @@
 // PART 1 USER-DASHBOARD-PAGE
 .dashboard-header {
-  padding: 20px 0px 20px 0px;
+  padding: 10px 0px 20px 0px;
+}
+
+#dashboard-container {
+  margin-top: 30px;
+  background-color: #fff;
 }
 
 .dashboard-header-context {
@@ -68,6 +73,34 @@
   color: #0A0A0A;
 }
 
+@media (max-width: 1599px) {
+  .select-date {
+    display: table;
+    width: 100%;
+  }
+
+  .select-date a {
+    color: black;
+    padding: 20px 12px 20px;
+    font-size: 15px;
+    display: table-cell;
+    text-align: center;
+    border: 1px solid black;
+  }
+
+  .select-date a.current {
+    color: white;
+    background-color: #EC2761;
+  }
+}
+
+#wallet-summary {
+  margin-top: 20px;
+}
+
+.select-date a:hover{
+  text-decoration: none;
+}
 // PART 2 USER SHOW AND EDIT PAGE
 .body-header {
   margin: auto;

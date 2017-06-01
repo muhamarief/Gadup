@@ -1,5 +1,6 @@
 class Api::V1::UsersController < Api::V1::BaseController
   before_action :authenticate_me!, only: [:show, :edit, :update, :destroy]
+  layout 'user', only: :show
 
   def new
     @user = User.new
@@ -73,6 +74,9 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def show
     @user = current_authenticatee
+    @entries = Entry.all.limit(5)
+    @wallet = @user.wallets.first
+    @this_week = (Date.today.at_beginning_of_week..Date.today.at_end_of_week)
   end
 
   def edit
