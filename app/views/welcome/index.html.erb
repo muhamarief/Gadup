@@ -56,37 +56,35 @@
     <div class='header-element'>
         <h3> News </h3>
     </div>
-    <% if !@entries_array.nil?%>
 
-        <% @entries_array.each do |entries| %>
-            <div class='row'>
-                <% entries.each do |entry| %>
-                    <div class='welcome-entry'>
-                        <div class='image-entry__container'>
-                            <%= link_to entry.entries_url do %>
-                                <%= image_tag entry.image_url, class: 'welcome-image-entry' %>
-                            <% end %>
+    <% @entries_array.each do |entries| %>
+        <div class='row'>
+            <% entries.each do |entry| %>
+                <div class='welcome-entry'>
+                    <div class='image-entry__container'>
+                        <%= link_to entry.entries_url do %>
+                            <%= image_tag entry.image_url, class: 'welcome-image-entry' %>
+                        <% end %>
+                    </div>
+                    <div class='title-entry__container'>
+                        <%= link_to entry.entries_url do %>
+                            <h5> <%= entry.title %> </h5>
+                        <% end %>
+                    </div>
+                    <div class='row entry-info'>
+                        <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6'>
+                            <%= link_to "#{entry.feed.url}", entry.feed.name %>
                         </div>
-                        <div class='title-entry__container'>
-                            <%= link_to entry.entries_url do %>
-                                <h5> <%= entry.title %> </h5>
-                            <% end %>
-                        </div>
-                        <div class='row entry-info'>
-                            <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6'>
-                                <%= link_to "#{entry.feed.url}", entry.feed.name %>
-                            </div>
-                            <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6 author'>
-                              <%= @entries.first.author%>
-                            </div>
-                        </div>
-                        <div class='content-entry__container'>
-                            <%= entry.content %>
+                        <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6 author'>
+                          <%= @entries.first.author%>
                         </div>
                     </div>
-                <% end %>
-            </div>
-        <% end %>
+                    <div class='content-entry__container'>
+                        <%= entry.content %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
     <% end %>
 <!-- div #welcome-entries -->
 </div>
