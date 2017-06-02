@@ -18,10 +18,24 @@ class Api::V1::EntriesController < Api::V1::BaseController
     @entries_array = @entries[1..-1].each_slice(3).to_a
   end
 
+  def edit
+    @entry = Entry.find(params[:id])
+    render :admin_edit
+  end
+
   def update
+    @entry = Entry.find(params[:id])
+    if @entry.update(entry_params)
+      redirect_to v1_feeds_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @entry = Entry.find(params[:id])
+    @entry.destroy
+    redirect_to v1_feeds_path
   end
 
 
