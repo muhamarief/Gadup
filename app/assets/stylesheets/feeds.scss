@@ -76,3 +76,19 @@
     margin: 0 1%;
   }
 }
+
+.edit-btn input {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+  color: black;
+}
+
+.delete-btn input {
+  background-color: #d9534f;
+  border-color: #d9534f;
+  color: black;
+}
+
+.delete-btn {
+  text-align: right;
+}
