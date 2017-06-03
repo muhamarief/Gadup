@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  layout 'welcome_user', only: [:edit]
+  layout 'welcome_user', only: [:edit, :auth_user]
 
   def index
     redirect_to v1_entries_path

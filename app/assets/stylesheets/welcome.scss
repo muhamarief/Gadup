@@ -1,7 +1,5 @@
 // PART 1 WELCOME#SHOW
-#welcome-user-action {
-  margin-top: 50px;
-}
+
 
 #welcome-edit-container {
   margin-top: 50px;
@@ -194,4 +192,53 @@
 
 .each-element {
   align-text: center;
+}
+
+
+// PART 3 WELCOME/AUTH_USER
+.auth-page__container {
+  margin-top: 30px;
+}
+
+.header__container {
+  text-align: center;
+}
+
+.header__container h3 {
+  padding: 0px 15px 10px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.auth-page__header h3 {
+  color: #fff;
+}
+
+.auth-page__actions .row {
+  padding: 10px 45px 50px 45px;
+}
+
+.auth-page__actions {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 0 5px #888;
+  border-radius: 4px;
+  padding-top: 10px;
+  width: 850px;
+  bottom: initial;
+  left: 0;
+  right: 0;
+  margin: auto;
+  overflow-y: hidden;
+  top: 10%;
+
+  margin-top: 75px;
+}
+
+#welcome-user-action {
+  margin-top: 50px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.image-header__auth {
+
 }
