@@ -7,7 +7,7 @@
             </a>
         <!-- div .branding -->
         </div>
-        <div class='main-links'>
+        <div class='main-links hidden-xs'>
             <%= link_to 'Dashboard', root_path%>
             <%= link_to 'Wallets', v1_user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) %>
             <%=link_to 'News', v1_entries_path%>
@@ -57,50 +57,37 @@
                 <i class="fa fa-th" aria-hidden="true"></i>
             </a>
             <ul class=dropdown-menu>
+                <li>
+                    <%= link_to 'Dashboard', root_path%>
+                </li>
+                <li>
+                    <%= link_to 'Wallets', v1_user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) %>
+                </li>
+                <li>
+                    <%=link_to 'News', v1_entries_path%>
+                </li>
+                <li>
+                    <a href="#">
+                        Promo
+                    </a>
+                </li>
 
-              <li>
+                <li class='divider'></li>
+                <li>
                   <a href='#'>
-                      <i class="fa fa-tachometer" aria-hidden="true"></i>
-                      &nbsp; Dasboard
+                    <i class='fa fa-user head-icons'></i>
+                    Profile Settings
                   </a>
-              </li>
-
-              <li>
-                  <a href='#'>
-                      <i class="fa fa-money" aria-hidden="true"></i>
-                      &nbsp; Transactions
-                  </a>
-              </li>
-
-              <li>
-                  <a href='#'>
-                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                      &nbsp; Forms
-                  </a>
-              </li>
-
-              <li>
-                  <a href='#'>
-                      <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                      &nbsp; News
-                  </a>
-              </li>
-              <li class='divider'></li>
-              <li>
-                <a href='#'>
-                  <i class='fa fa-user head-icons'></i>
-                  Profile Settings
-                </a>
-              </li>
-              <li class='divider'></li>
-              <li>
-                  <%=link_to v1_auth_user_path(current_authenticatee), method: :delete do%>
-                    <i class="fa fa-sign-out" aria-hidden="true"></i> Log Out
-                  <% end %>
-              </li>
+                </li>
+                <li class='divider'></li>
+                <li>
+                    <%=link_to v1_auth_user_path(current_authenticatee), method: :delete do%>
+                      <i class="fa fa-sign-out" aria-hidden="true"></i> Log Out
+                    <% end %>
+                </li>
 
             </ul>
-          <!-- div .mobile-burger -->
+        <!-- div .mobile-dropdown dropdown -->
         </div>
     <!-- div .right-header -->
     </div>

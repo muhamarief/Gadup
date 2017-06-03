@@ -2,15 +2,16 @@ class WelcomeController < ApplicationController
   layout 'welcome_user', only: [:edit]
 
   def index
-    if current_authenticatee && info_updated?
-      redirect_to v1_user_path(current_authenticatee)
-    elsif current_authenticatee && !info_updated?
-      redirect_to edit_welcome_path(current_authenticatee)
-    else
-      @entries = Entry.all.order('published DESC').limit(8)
-      @entries_array = @entries.each_slice(4).to_a
-      render :index
-    end
+    redirect_to v1_entries_path
+    # if current_authenticatee && info_updated?
+    #   redirect_to v1_user_path(current_authenticatee)
+    # elsif current_authenticatee && !info_updated?
+    #   redirect_to edit_welcome_path(current_authenticatee)
+    # else
+    #   @entries = Entry.all.order('published DESC').limit(8)
+    #   @entries_array = @entries.each_slice(4).to_a
+    #   render :index
+    # end
   end
 
   def edit
