@@ -24,7 +24,6 @@ class Api::V1::UsersController < Api::V1::BaseController
       flash.now.alert = 'Anda telah berhasil membuat akun, silahkan melakukan konfirmasi email, melalui email yang anda gunakan'
       redirect_to root_path
     else
-      byebug
       # #api based rails
       # render json: { error: "Email has been taken" }
 
