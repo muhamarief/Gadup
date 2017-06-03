@@ -8,10 +8,16 @@
                     </a>
                 <!-- div .navbar-header -->
                 </div>
+
                 <div class='header-links hidden-xs'>
                     <ul class="nav navbar-nav">
                         <li>
                           <%= link_to 'Home', root_path %>
+                        </li>
+                        <li>
+                            <a href='#'>
+                                Wallets
+                            </a>
                         </li>
                         <li>
                             <a href='#'>
@@ -37,6 +43,53 @@
                     </ul>
                 <!-- div .header-links hidden-xs -->
                 </div>
+
+                <div class='mobile-dropdown dropdown'>
+                    <a href='#' class='dropdown-toggle' data-toggle="dropdown">
+                        <i class="fa fa-th" aria-hidden="true"></i>
+                    </a>
+                    <ul class=dropdown-menu>
+
+                        <li>
+                          <%= link_to 'Home', root_path %>
+                        </li>
+
+                        <li>
+                            <a href='#'>
+                                Promo
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='#'>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <%= link_to 'News', v1_entries_path %>
+                        </li>
+
+                        <li class='divider'></li>
+
+                        <li>
+                          <a href='#'>
+                            <i class='fa fa-user head-icons'></i>
+                            Profile Settings
+                          </a>
+                        </li>
+                        <li class='divider'></li>
+
+                        <li class='btn-header'>
+                            <%= link_to 'User Login', hello_user_welcome_index_path, class: 'header-auth'%>
+                        </li>
+
+                        <li class='btn-header'>
+                            <%= link_to 'Vendor Login', hello_vendor_welcome_index_path, class: 'header-auth' %>
+                        </li>
+
+                    </ul>
+                <!-- div .mobile-dropdown dropdown -->
+                </div>
             <!-- div .container-fluid -->
             </div>
         <!-- nav #welcome-nav -->
@@ -44,7 +97,7 @@
     <!-- div #welcome-header -->
     </div>
 
-    <div class='col-md-8 col-sm-8 col-xs-12 col-lg-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 hero-text'>
+    <div class='col-md-8 col-sm-8 col-lg-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2 col-xs-12 hero-text'>
         <h1> Platform Untuk Menyusun Finansial Anda </h1>
         <h3> Kami menyediakan solusi terbaik untuk semua </h3>
     <!-- div .col-md-8 col-sm-8 col-xs-12 col-lg-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 hero-text -->
@@ -52,9 +105,9 @@
 <!-- div .hero-image -->
 </div>
 
-<div id='welcome-entries' class='col-md-10 col-lg-10 col-sm-10 col-xs-10 col-md-offset-1 col-lg-offset-1 col-xs-offset-1'>
+<div id='welcome-entries' class='col-md-10 col-lg-10 col-sm-10 col-xs-10 col-md-offset-1 col-lg-offset-1 col-xs-offset-1 col-sm-offset-1'>
     <div class='header-element'>
-        <h3> All About Finance </h3>
+        <h3> Finance Today </h3>
     </div>
 
     <% @entries_array.each do |entries| %>
@@ -66,82 +119,29 @@
                             <%= image_tag entry.image_url, class: 'welcome-image-entry' %>
                         <% end %>
                     </div>
+
                     <div class='title-entry__container'>
                         <%= link_to entry.entries_url do %>
                             <h5> <%= entry.title %> </h5>
                         <% end %>
                     </div>
+
                     <div class='row entry-info'>
                         <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6'>
-                            <%= link_to "#{entry.feed.url}", entry.feed.name %>
-                        </div>
-                        <div class='col-md-6 col-xs-6 col-sm-6 col-lg-6 author'>
-                          <%= @entries.first.author%>
+                            <%= link_to "#{entry.feed.name}", entry.feed.url  %>
                         </div>
                     </div>
+
                     <div class='content-entry__container'>
                         <%= entry.content %>
                     </div>
                 </div>
             <% end %>
+        <!-- div .row -->
         </div>
     <% end %>
+    <div class='more-btn'>
+        <%=button_to "More News", v1_entries_path, method: :get, class: 'btn btn-default btn-more__news'%>
+    </div>
 <!-- div #welcome-entries -->
-</div>
-
-<div id='why-us'>
-    <div class='header-element'>
-        <h2> This Will be The Why Us </h2>
-    </div>
-
-    <div class='body-element'>
-        <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
-            <center>
-                <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
-                <h4 class='head-desc'>
-                  <span> LOREM IPSUM </span>
-                </h4>
-                <p class='body-desc'>
-                  <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
-                </p>
-            </center>
-        </div>
-
-        <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
-            <center>
-                <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
-                <h4 class='head-desc'>
-                  <span> LOREM IPSUM </span>
-                </h4>
-                <p class='body-desc'>
-                  <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
-                </p>
-            </center>
-        </div>
-
-        <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
-          <center>
-              <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
-              <h4 class='head-desc'>
-                <span> LOREM IPSUM </span>
-              </h4>
-              <p class='body-desc'>
-                <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
-              </p>
-          </center>
-        </div>
-
-        <div class='col-md-3 col-sm-3 col-lg-3 col-xs-12'>
-          <center>
-              <%=image_tag('gadup-logo.png', class: 'why-us-trial')%>
-              <h4 class='head-desc'>
-                <span> LOREM IPSUM </span>
-              </h4>
-              <p class='body-desc'>
-                <span> Lorem ipsum dolor sit amet, feugait perfecto legendos no vis, est cu velit utamur recusabo, sea te nulla noster recusabo. Per consul populo mediocritatem id, cum quem enim primis ex. </span>
-              </p>
-          </center>
-        </div>
-    </div>
-<!-- div #why-us -->
 </div>
