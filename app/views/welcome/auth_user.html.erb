@@ -1,34 +1,45 @@
-<center>
-  <h2> Selamat Datang di Gadup Indonesia </h2>
-  <h3> Asisten pribadi untuk managemen keuangan dan hidup anda </h3>
-</center>
+<div class='auth-page__container col-md-8 col-lg-8 col-sm-12 col-xs-12 col-md-offset-2 col-lg-offset-2'>
+    <div class='auth-page__header'>
+        <center>
+            <%=image_tag 'big-logo.png', class: 'image-header__auth'%>
+            <h3> Asisten pribadi untuk managemen keuangan dan aktivitas anda </h3>
+        </center>
+    </div>
 
-<div class="container">
-    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" id='welcome-user-action'>
+    <div class="auth-page__actions">
+        <div class='header__container'>
+            <h3> Masuk ke Gadup </h3>
+        </div>
         <div class='row'>
-            <div class='col-md-6 col-xs-6 col-sm-6'>
-              <p> Social Media Buttons
+            <div class='col-md-6 col-xs-12 col-sm-12 col-lg-6'>
+              <h4> Masuk Dengan Social Media </h4>
             </div>
 
-            <div class='col-md-6 col-xs-6 col-sm-6'>
+            <div class='col-md-6 col-xs-12 col-sm-12 col-lg-6'>
                 <center>
-                    <h4> Silahkan Masukkan Email dan Password anda </h4>
+                    <h4> Masuk Dengan Email </h4>
                 </center>
 
                 <%= form_tag v1_auth_users_path do %>
-                    <%= label_tag :email%>
-                    <%= text_field_tag :email%></br>
+                    <div class='form-group'>
+                        <%= label_tag :email%>
+                        <%= text_field_tag :email, "", class: 'form-control'%></br>
+                    </div>
 
-                    <%= label_tag :password %>
-                    <%= password_field_tag :password %>
-                    <div class="actions"><%= submit_tag "Log In" %></div>
+                    <div class='form-group'>
+                        <%= label_tag :password %>
+                        <%= password_field_tag :password, "", class: 'form-control' %>
+                    </div>
+                    <div class="actions">
+                        <%= submit_tag "Log In" %>
+                    </div>
                 <% end %>
 
             </div>
             <%=link_to "bergabung dengan email pribadi", new_v1_user_path %>
         <!-- div .row -->
         </div>
-    <!-- div #welcome-user-action -->
+    <!-- div .container auth-page__actions -->
     </div>
-<!-- div .container -->
+<!-- div .auth-page__container -->
 </div>
