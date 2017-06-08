@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
   root 'welcome#index'
 
+  get '_ah/health', to: 'app_engine#health'
+
   devise_for :users
   devise_for :admins
 
