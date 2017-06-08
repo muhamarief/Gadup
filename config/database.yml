@@ -78,8 +78,21 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: Gadup-api_production
+#   username: Gadup-api
+#   password: <%= ENV['GADUP-API_DATABASE_PASSWORD'] %>
+
+postgresql_settings: &postgresql_settings
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: Zc9DNuno
+  host: 35.185.178.62
+  database: gadup-lib
+
+
 production:
-  <<: *default
-  database: Gadup-api_production
-  username: Gadup-api
-  password: <%= ENV['GADUP-API_DATABASE_PASSWORD'] %>
+  <<: *postgresql_settings
