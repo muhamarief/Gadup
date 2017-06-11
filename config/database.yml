@@ -89,8 +89,8 @@ postgresql_settings: &postgresql_settings
   encoding: unicode
   pool: 5
   username: postgres
-  password: Zc9DNuno
-  host: 35.185.178.62
+  password: YWnT5fst
+  host: 35.186.155.103
   database: gadup-lib
 
 
