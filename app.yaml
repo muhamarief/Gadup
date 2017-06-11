@@ -1,6 +1,5 @@
-entrypoint: bundle exec rackup --port $PORT
 env: flex
 runtime: ruby
-
-env_variables:
-  SECERT_KEY_BASE: 83626166d77c36ede42099667d6777d38393b3e165439b71180faf061524578a889a255aeda932362b4956de8bc3c581e778aa493cdd073ce828038ff5dfcf8f
+health_check:
+  enable_health_check: False
+entrypoint: bundle exec rackup -p 8080
