@@ -21,7 +21,7 @@
                     <h4> Masuk Dengan Email </h4>
                 </center>
 
-                <%= form_tag v1_auth_users_path do %>
+                <%= form_tag auth_users_path do %>
                     <div class='form-group'>
                         <%= label_tag :email%>
                         <%= text_field_tag :email, "", class: 'form-control'%></br>
@@ -37,7 +37,7 @@
                 <% end %>
 
             </div>
-            <%=link_to "bergabung dengan email pribadi", new_v1_user_path %>
+            <%=link_to "bergabung dengan email pribadi", new_user_path %>
         <!-- div .row -->
         </div>
     <!-- div .container auth-page__actions -->
