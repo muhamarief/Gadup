@@ -1,0 +1,122 @@
+<%= render template: "api/v1/component/_header_admins.html.erb"%>
+
+<div class='col-md-8 col-sm-12 col-lg-8 col-xs-12 col-md-offset-2 col-lg-offset-2'>
+    <div class='row'>
+        <div class='feed-title col-md-8 col-sm-8 col-lg-8 col-xs-10'>
+            <h3> <%= @feed.name %> <small> entries </small> </h3>
+        </div>
+
+        <div class='btn-admin col-md-4 col-sm-4 col-lg-4 col-xs-2'>
+            <button type="button" class="btn btn-success btn-md pull-right" align='center' data-toggle="modal" data-target="#myModal">Add New Entry</button>
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+
+                        <%= form_for [current_authenticatee, @feed, @entry] do |f| %>
+                            <div class="modal-body">
+                                <div class='form-group'>
+                                    <%= f.label :entries_url %><br/>
+                                    <%= f.text_field :entries_url, class:'form-control' %>
+                                </div>
+
+                                <div class='form-group'>
+                                    <%= f.label :image_url %><br/>
+                                    <%= f.text_field :image_url, class:'form-control' %>
+                                </div>
+
+                                <div class='form-group'>
+                                    <%= f.label :title %><br/>
+                                    <%= f.text_field :title, class:'form-control' %>
+                                </div>
+
+                                <div class='form-group'>
+                                    <%= f.label :content %><br/>
+                                    <%= f.text_field :content, class:'form-control' %>
+                                </div>
+
+                                <div class='form-group'>
+                                    <%= f.label :author_name %><br/>
+                                    <%= f.text_field :author, class:'form-control' %>
+                                </div>
+
+                                <div class='input-group date' id='datetimepicker3'>
+                                    <%= f.label :published_at %><br/>
+                                    <%= f.text_field :published, class: 'form-control' %>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-lg btn-success btn-block" type="submit">Save</button>
+                            </div>
+                        <% end %>
+                    <!-- div .modal-content -->
+                    </div>
+                <!-- div .modal-dialog -->
+                </div>
+            <!-- div .modal-fade -->
+            </div>
+        <!-- div .col-md-4 col-sm-4 col-lg-4 col-xs-2-->
+        </div>
+    <!-- div .row -->
+    </div>
+
+
+    <div class='feed-entries'>
+        <% if @entries_array.count < 1 %>
+            <center>
+                <p> WE DONT HAVE NEWS FOR THIS SITE YET </p>
+            </center>
+        <% else %>
+            <% @entries_array.each do |entries| %>
+                <div class='row'>
+                    <% entries.each do |entry| %>
+                        <div class='entry-grid'>
+                            <div class='entry-links'>
+                                <%= link_to entry.entries_url do %>
+                                    <%= image_tag "#{entry.image_url}", class: 'entry-image' %>
+                                <% end %>
+
+                                <p>
+                                  <%= link_to entry.entries_url, class: 'entry-title' do %>
+                                      <%= entry.title %>
+                                  <% end %>
+                                </p>
+                            </div>
+
+                            <div class=' entry-content'>
+                                <div class='row'>
+                                    <div class='col-md-6 col-xs-12 col-sm-6 col-lg-6'>
+                                        <p class='entry-info'> <%= entry.feed.url %> </p>
+                                    </div>
+                                </div>
+                                <p class='entry-content'>
+                                    <%= entry.content.first(125) %>
+                                </p>
+                            </div>
+                        <!-- div .entry-grid-->
+                            <div class='row'>
+                                <div class='col-md-6 col-xs-6 col-lg-6 col-sm-6 edit-btn'>
+                                    <%= button_to "Edit", edit_feed_entry_path(entry.feed, entry), method: :get%>
+                                </div>
+
+                                <div class='col-md-6 col-xs-6 col-lg-6 col-sm-6 delete-entry'>
+                                    <%= button_to "Delete", edit_feed_entry_path(entry.feed, entry), method: :delete%>
+                                </div>
+                            <!-- div .entry-btn -->
+                            </div>
+                        </div>
+                    <% end %>
+                <!-- div .row -->
+                </div>
+            <% end %>
+        <% end %>
+    <!-- div .feed-entries -->
+    </div>
+<!-- div .col-md-10 col-sm-10 col-lg-10 col-xs-12 -->
+</div>
