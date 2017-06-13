@@ -1,0 +1,59 @@
+<%= render template: "api/v1/component/_header_admins.html.erb"%>
+
+<div id='entries-edit__container' class='col-md-8 col-lg-8 col-sm-12 col-xs-12 col-md-offset-2 col-lg-offset-2'>
+    <div class='header-container'>
+        <h2> EDIT ENTRY </h2>
+    <!-- div .header-container -->
+    </div>
+    <div class='content-container'>
+        <%= form_for [@entry.feed, @entry] do |f| %>
+            <div class='row'>
+                <div class='col-md-4 col-sm-4 col-xs-4 col-lg-4'>
+                    <%= image_tag @entry.image_url, class: 'image-edit' %>
+                </div>
+
+                <div class='col-md-8 col-sm-8 col-xs-8 col-lg-8'>
+                    <div class='form-group'>
+                        <%= f.label :entries_url %>
+                        <%= f.text_field :entries_url, class: 'form-control'%><br/>
+                    </div>
+
+                    <div class='form-group'>
+                        <%= f.label :image_url %>
+                        <%= f.text_field :image_url, class: 'form-control' %><br/>
+                    </div>
+
+                    <div class='form-group'>
+                        <%= f.label :title %>
+                        <%= f.text_field :title, class: 'form-control' %><br/>
+                    </div>
+
+                    <div class='form-group'>
+                        <%= f.label :content %>
+                        <%= f.text_field :content, class: 'form-control' %><br/>
+                    </div>
+
+                    <div class='row'>
+                        <div class='form-group col-md-6 col-xs-6 col-sm-6 col-lg-6'>
+                            <%= f.label :author %>
+                            <%= f.text_field :author, class: 'form-control' %><br/>
+                        </div>
+
+                        <%= f.label :published_at %><br/>
+                        <div class='input-group date col-md-6 col-xs-6 col-sm-6 col-lg-6' id='datetimepicker3'>
+                            <%= f.text_field :published, class: 'form-control' %>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+
+                        <%= f.submit 'Save Changes', class: 'btn btn-success pull-right' %>
+
+                <!-- div .col-md-8 col-sm-8 col-xs-8 col-lg-8 -->
+                </div>
+            <!-- div .row -->
+            </div>
+        <% end %>
+    <!-- div .content-container -->
+    </div>
+<!-- div .col-md-8 col-lg-8 col-sm-12 col-xs-12 col-md-offset-2 col-lg-offset-2 -->
+</div>

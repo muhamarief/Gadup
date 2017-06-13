@@ -1,0 +1,23 @@
+<%= render template: "api/v1/component/_headers"%>
+<%= render template: "api/v1/component/_dashboardnav.html.erb"%>
+
+<div id='user-edit-container' class='col-md-10 col-sm-10 col-lg-10 col-xs-12'>
+    <div class='dashboard-header'>
+        <h2 class='dashboard-header-context'> MY PROFILE <small> Complete View </small></h2>
+    <!-- div .dashboard-head -->
+    </div>
+    <div class='user-profile-body'>
+        <div class='body-header'>
+            <div class='row'>
+                <center>
+                    <%=image_tag 'male-default.png', class: 'user-picture'%>
+                    <p class='user-full-name'> <%=@user.last_name%>, <%=@user.first_name%></p>
+                </center>
+            <!-- div .row -->
+            </div>
+        <!-- div .body-header -->
+        </div>
+    <!-- div .user-profile-body -->
+    </div>
+<!-- div #user-edit-container -->
+</div>

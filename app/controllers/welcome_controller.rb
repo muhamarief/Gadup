@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   layout 'welcome_user', only: [:edit, :auth_user]
 
   def index
-    redirect_to v1_entries_path
+    redirect_to news_path
     # if current_authenticatee && info_updated?
     #   redirect_to v1_user_path(current_authenticatee)
     # elsif current_authenticatee && !info_updated?

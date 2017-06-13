@@ -1,0 +1,37 @@
+<ul class='col-md-2 col-sm-2 col-lg-2 hidden-xs dashboard-menu '>
+    <li>
+        <a href='#'>
+          <i class="fa fa-home" aria-hidden="true"></i>
+          &nbsp; Home
+        </a>
+    </li>
+
+    <li>
+        <%= link_to v1_user_path(current_authenticatee) do %>
+            <i class="fa fa-tachometer" aria-hidden="true"></i>
+            &nbsp; Dasboard
+        <% end %>
+    </li>
+
+    <li>
+        <%=link_to v1_user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) do %>
+            <i class="fa fa-money" aria-hidden="true"></i>
+            &nbsp; Transactions
+        <% end %>
+
+    </li>
+
+    <li>
+        <a href='#'>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            &nbsp; Forms
+        </a>
+    </li>
+
+    <li>
+        <%= link_to v1_entries_path do %>
+            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+            &nbsp; News
+        <% end %>
+    </li>
+</ul>
