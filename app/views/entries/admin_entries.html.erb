@@ -1,0 +1,56 @@
+<%= render template: "api/v1/component/_header_admins.html.erb"%>
+
+<div class='col-md-8 col-lg-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2'>
+    <div class='row'>
+        <div class='col-md-8 col-sm-8 col-lg-8 col-xs-10'>
+            <h2 class='headers-text'> NEWS <small> Entries </small> </h2>
+        <!-- div .col-md-8 col-sm-8 col-lg-8 col-xs-10 -->
+        </div>
+        <div class='btn-admin col-md-4 col-sm-4 col-lg-4 col-xs-2'>
+            <button type="button" class="btn btn-success btn-md pull-right" align='center' data-toggle="modal" data-target="#myModal">Add New Entry</button>
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <%= form_for [current_authenticatee,@entry] %>
+                                
+                            <% end %>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    <!-- div .modal-content -->
+                    </div>
+                <!-- div .modal-dialog -->
+                </div>
+            <!-- div .modal-fade -->
+            </div>
+        <!-- div .col-md-4 col-sm-4 col-lg-4 col-xs-2-->
+        </div>
+    </div>
+
+
+
+
+
+    <div class='jumbotron'>
+        <% if @entries.length < 1 %>
+            <p> WE DONT HAVE ENTRIES YET </p>
+        <% else %>
+            <% @entries.each do |entry| %>
+                <div class='admin-entries'>
+                    <%= image_tag "#{entry.image_url}" %>
+                </div>
+            <% end %>
+        <% end %>
+    <!-- div .jumbotron -->
+    </div>
+<!-- div .col-md-8 col-lg-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2 -->
+</div>

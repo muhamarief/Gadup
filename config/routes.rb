@@ -1,19 +1,51 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  devise_for :admins
+
+  root 'welcome#index'
+  get '_ah/health', to: 'app_engine#health'
+
   authenticated :user do
     root :to => 'users#show'
   end
-  root 'welcome#index'
-
-  get '_ah/health', to: 'app_engine#health'
-
-  devise_for :users
-  devise_for :admins
 
   resources :welcome, only: :edit do
     get 'hello_user', action: :auth_user, on: :collection
     get 'hello_vendor', action: :auth_vendor, on: :collection
     get 'hello_admin', action: :auth_admin, on: :collection, constraints: { subdomain: 'admin' }
+  end
+
+  #admin pages
+  resources :admins, constraints: { subdomain: 'admin' } do
+    resources :feeds, only: :create do
+      resources :entries, only: :create
+    end
+  end
+  resources :feeds, except: :create, constraints: { subdomain: 'admin' } do
+    resources :entries, except: :create
+  end
+
+  #users pages
+  resources :users do
+    member do
+      get :confirm_email
+    end
+    resources :wallets, only: [:create, :show] do
+      resources :incomes, only: :create
+      resources :spendings, only: :create
+    end
+  end
+  get 'news', to: 'entries#public_news'
+  resources :entries, only: :index do
+    get 'news', on: :collection
+  end
+
+
+  #authentication pages
+  namespace :auth do
+    resources :users, only: [:new, :create, :destroy]
+    resources :admins, only: [:new, :create, :destroy], constraints: { subdomain: 'admin' }
   end
 
 
