@@ -14,8 +14,20 @@ class EntriesController < ApplicationController
   end
 
   def public_news
-    @entries = Entry.all.order('published DESC').limit(20)
-    @entries_array = @entries[1..-1].each_slice(3).to_a
+    if params[:id]
+      @entries = Entry.where('id < ?', params[:id]).order('id DESC').limit(16)
+      @entries = @entries.each_slice(3).to_a
+    else
+      @first_entry = Entry.all.last
+      @entries = Entry.all.order('id DESC').limit(16)
+      @entries = @entries[1..-1].each_slice(3).to_a
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
     render :index
   end
 
