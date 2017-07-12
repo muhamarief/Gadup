@@ -85,6 +85,16 @@
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+a.load-more {
+  padding: 10px;
+  color: inherit;
+  width: 100%;
+  border: 1px black solid;
+}
+
+a.load-more:hover {
+  text-decoration: none;
+}
 
 // PART 2 ADMIN_EDIT.HTML.ERB
 #entries-edit__container {
