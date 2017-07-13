@@ -88,12 +88,16 @@
 a.load-more {
   padding: 10px;
   color: inherit;
-  width: 100%;
+  text-align: center;
+  display: block;
   border: 1px black solid;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 a.load-more:hover {
   text-decoration: none;
+  background-color: #eeeeee;
 }
 
 // PART 2 ADMIN_EDIT.HTML.ERB
