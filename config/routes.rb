@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  devise_for :admins
+  # devise_for :users
+  # devise_for :admins
 
   root 'welcome#index'
   get '_ah/health', to: 'app_engine#health'
@@ -40,7 +40,6 @@ Rails.application.routes.draw do
   resources :entries, only: :index do
     get 'news', on: :collection
   end
-
 
   #authentication pages
   namespace :auth do
