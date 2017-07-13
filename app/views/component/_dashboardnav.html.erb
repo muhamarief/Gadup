@@ -7,14 +7,14 @@
     </li>
 
     <li>
-        <%= link_to v1_user_path(current_authenticatee) do %>
+        <%= link_to user_path(current_authenticatee) do %>
             <i class="fa fa-tachometer" aria-hidden="true"></i>
             &nbsp; Dasboard
         <% end %>
     </li>
 
     <li>
-        <%=link_to v1_user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) do %>
+        <%=link_to user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) do %>
             <i class="fa fa-money" aria-hidden="true"></i>
             &nbsp; Transactions
         <% end %>
@@ -29,7 +29,7 @@
     </li>
 
     <li>
-        <%= link_to v1_entries_path do %>
+        <%= link_to news_path do %>
             <i class="fa fa-newspaper-o" aria-hidden="true"></i>
             &nbsp; News
         <% end %>

@@ -4,7 +4,7 @@
 dengan email: <%= @user.email %>.<br></p>
 
 <p class="callout">
-Untuk konfirmasi akun baru, silahkan buka tautan: <%= link_to 'Konfirmasi Email', confirm_email_v1_user_url(@user.confirmation_token) %>
+Untuk konfirmasi akun baru, silahkan buka tautan: <%= link_to 'Konfirmasi Email', confirl_email_user_url(@user.confirmation_token) %>
 </p>
 
 <p>Terima kasih telah bergabung dan semoga harimu menyenangkan!</p>
