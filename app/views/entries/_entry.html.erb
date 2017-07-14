@@ -1,28 +1,26 @@
-<% @entries.each do |entries| %>
-    <div class='row'>
-        <% entries.each do |entry| %>
-            <div class='each-entry' news-id="<%=entry.id%>">
-                <%=image_tag "#{entry.image_url}", class: "image-entry"%>
+<div class='row'>
+    <% entries.each do |entry| %>
+        <div class='each-entry' news-id="<%=entry.id%>">
+            <%=image_tag "#{entry.image_url}", class: "image-entry"%>
 
-                <div class='row entry-info'>
-                    <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6'>
-                        <%=link_to entry.feed.url do %>
-                            <p> <%= entry.feed.name %> </p>
-                        <% end %>
-                    </div>
-                    <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6'>
-                        <p class= 'author'><%= entry.author%> </p>
-                    </div>
-                <!-- div .row entry-info -->
-                </div>
-                <div class='entry-content'>
-                    <%= link_to entry.entries_url, class: 'entry-title' do %>
-                        <h4><%= entry.title %></h4>
+            <div class='row entry-info'>
+                <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6'>
+                    <%=link_to entry.feed.url do %>
+                        <p> <%= entry.feed.name %> </p>
                     <% end %>
-                    <p><%= entry.content%>&nbsp;&nbsp;<%=link_to 'Read More', entry.feed.url %></p>
                 </div>
+                <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6'>
+                    <p class= 'author'><%= entry.author%> </p>
+                </div>
+            <!-- div .row entry-info -->
             </div>
-        <% end %>
-    <!-- .div row -->
-    </div>
-<% end %>
+            <div class='entry-content'>
+                <%= link_to entry.entries_url, class: 'entry-title' do %>
+                    <h4><%= entry.title %></h4>
+                <% end %>
+                <p><%= entry.content%>&nbsp;&nbsp;<%=link_to 'Read More', entry.feed.url %></p>
+            </div>
+        </div>
+    <% end %>
+<!-- .div row -->
+</div>
