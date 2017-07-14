@@ -30,7 +30,9 @@
         <!-- div .trending-news -->
         </div>
         <div class='news'>
-            <%= render template: "entries/_entry" %>
+            <% @entries.each do |entries| %>
+                <%= render 'entry', entries: entries %>
+            <% end %>
           <!-- div .news -->
         </div>
 
