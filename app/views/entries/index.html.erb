@@ -13,17 +13,11 @@
                         <h2><%= @first_entry.title %></h2>
                     <% end %>
 
-                    <div class='row entry-info'>
-                        <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6'>
-                            <%=link_to "#{@first_entry.feed.name}", @first_entry.feed.url %>
-                        </div>
+                    <span class='row entry-info col-md-12 col-lg-12 col-xs-12 col-sm-12'>
+                        <%=link_to "#{@first_entry.feed.name} - #{@first_entry.author}", @first_entry.feed.url %>
+                    </span>
 
-                        <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6 pull-right'>
-                            <%= @first_entry.author%>
-                        </div>
-                    </div>
-
-                    <p><%= @first_entry.content%></p>
+                    <div><%= @first_entry.content%></div>
                 </div>
             <!-- div .row -->
             </div>
