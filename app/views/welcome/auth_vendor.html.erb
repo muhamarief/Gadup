@@ -15,7 +15,7 @@
                     <h4> Silahkan Masukkan Email dan Password anda </h4>
                 </center>
 
-                <%= form_tag v1_auth_users_path do %>
+                <%= form_tag auth_user_path do %>
                     <%= label_tag :email%>
                     <%= text_field_tag :email%></br>
 
@@ -25,7 +25,7 @@
                 <% end %>
 
             </div>
-            <%=link_to "bergabung dengan email pribadi", new_v1_user_path %>
+            <%=link_to "bergabung dengan email pribadi", new_user_path %>
         <!-- div .row -->
         </div>
     <!-- div #welcome-user-action -->
