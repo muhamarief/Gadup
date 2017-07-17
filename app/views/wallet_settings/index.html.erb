@@ -1,0 +1,175 @@
+<%= render template: "component/_headers"%>
+
+<div class='dashboard-container col-md-10 col-sm-10 col-lg-10 col-xs-12 col-md-offset-1 col-sm-offset-1 col-lg-offset-1'>
+    <div class='dashboard-header'>
+        <h2 class='dashboard-header-context'> Wallet Setting </h2>
+    <!-- div .dashboard-header -->
+    </div>
+
+    <div class='each-content'>
+        <div class='header-content'>
+            <p> Fitur Managemen Wallet </p>
+        </div>
+
+        <%= form_for [@current_authenticatee, @wallet, @wallet_setting] do |form| %>
+            <div class='row'>
+                    <div class='walset-form col-md-3 col-xs-6'>
+                        <div class='form-group'>
+                            <%=form.label :target_menabung%><br/>
+                            <%=form.text_field :save_plan, class: 'form-control'%><br/>
+
+                            <div class='onoffswitch'>
+                                <%= form.check_box :active_save_plan, {:checked => @wallet_setting.active_save_plan, class: 'onoffswitch-checkbox', id: 'myonoffswitch'} %>
+                                <%= form.label :active, class: 'onoffswitch-label', for: 'myonoffswitch'  do %>
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                <% end %>
+                            <!-- div .onoffswitch -->
+                            </div>
+                        <!-- div .form-group -->
+                        </div>
+                    <!-- div .walset-form -->
+                    </div>
+            <!-- div .row -->
+            </div>
+
+            <center>
+                <%= form.submit 'Save Changes', class: 'btn btn-success' %>
+            </center>
+        <% end %>
+    </div>
+
+    <div class='each-content'>
+        <div class='header-content'>
+            <p> Transaksi Tetap Bulanan </p>
+        </div>
+
+        <div class='row'>
+            <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                <div class='header-subcontent'>
+                    <p> Pemasukan Bulananku </p>
+
+                    <% if @monthly_income.length < 1 %>
+                        <div class='no-transactions'>
+                            <p> Anda belum mempunyai informasi pengeluaran bulanan </p>
+                            <p> Tambahkan informasi untuk menggunakan kalkulator wallet otomatis anda </p>
+                        </div>
+
+                            <button type='button' class='btn btn-success center-block' data-toggle='modal' data-target="#spendingModal">
+                                Add Incomes Information
+                            </button>
+
+                            <%= render template: 'component/_add_income'%>
+                    <% else %>
+                        <div class='table-responsive'>
+                            <table class='table table-stripped'>
+                                <thead>
+                                    <tr>
+                                        <th> Tanggal </th>
+                                        <th> Nominal </th>
+                                        <th> Keterangan </th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                        <% @monthly_income.each do |income| %>
+                                            <tr>
+                                                <td>
+                                                  <%= income.transaction_time.to_date %>
+                                                </td>
+                                                <td>
+                                                  <%= income.nominal%>
+                                                </td>
+                                                <td>
+                                                  <%= income.description %>
+                                                </td>
+                                                <td>
+                                                  <a href='#'> edit </a>
+                                                </td>
+                                                <td>
+                                                  <a href='#'> delete </a>
+                                                </td>
+                                            </tr>
+                                        <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button type='button' class='btn btn-success center-block' data-toggle='modal' data-target="#spendingModal">
+                            New Income
+                        </button>
+                        <%= render template: 'component/_add_income'%>
+                    <% end %>
+                </div>
+            </div>
+            <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                <div class='header-subcontent'>
+                    <p> Pengeluaran Bulananku </p>
+                    <% if @monthly_spending.length < 1 %>
+                        <div class='no-transactions'>
+                            <p> Anda belum mempunyai informasi pengeluaran bulanan </p>
+                            <p> Tambahkan informasi untuk menggunakan kalkulator wallet otomatis anda </p>
+
+                            <button type='button' class='btn btn-success center-block' data-toggle='modal' data-target="#spendingModal">
+                                Add Spendings Information
+                            </button>
+
+                            <%= render template: 'component/_add_spending'%>
+
+                        </div>
+                    <% else %>
+                        <div class='table-responsive'>
+                            <table class='table table-stripped'>
+                                <thead>
+                                    <tr>
+                                        <th> Tanggal </th>
+                                        <th> Nominal </th>
+                                        <th> Keterangan </th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <% @monthly_spending.each do |spending| %>
+                                        <tr>
+                                            <td>
+                                              <%= spending.spending_time.to_date %>
+                                            </td>
+                                            <td>
+                                              <%= spending.nominal%>
+                                            </td>
+                                            <td>
+                                              <%= spending.description %>
+                                            </td>
+                                            <td>
+                                              <a href='#'> edit </a>
+                                            </td>
+                                            <td>
+                                              <a href='#'> delete </a>
+                                            </td>
+                                        </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button type='button' class='btn btn-success center-block' data-toggle='modal' data-target="#spendingModal">
+                            New Spending
+                        </button>
+                        <%= render template: 'component/_add_spending'%>
+
+                    <% end %>
+                </div>
+            <!-- div .col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 -->
+            </div>
+        <!-- div .row -->
+        </div>
+    </div>
+
+<!-- div .dashboard-container     -->
+</div>
