@@ -5,12 +5,12 @@
 
 
             <div class='entry-column'>
-                <%= link_to entry.entries_url, class: 'entry-title' do %>
+                <%= link_to entry.entries_url, class: 'entry-title', target: '_blank' do %>
                     <h4><%= entry.title %></h4>
                 <% end %>
                 <div class='row entry-info'>
                     <div class='col-md-12 col-lg-12 col-xs-12 col-sm-12'>
-                        <%=link_to entry.feed.url do %>
+                        <%=link_to entry.feed.url, target: '_blank' do %>
                             <%= entry.feed.name %> - <%= entry.author%>
                         <% end %>
                     </div>
