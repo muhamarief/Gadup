@@ -1,15 +1,22 @@
 // PART 1 USER-DASHBOARD-PAGE
-.dashboard-header {
-  padding: 10px 0px 20px 0px;
+.dashboard-header, .each-content {
+  padding: 20px 20px 20px 20px;
 }
 
-#dashboard-container {
+.dashboard-container {
   margin-top: 30px;
   background-color: #fff;
+  border: 3px solid #BACCD6;
+  border-radius: 7px;
 }
 
 .dashboard-header-context {
   border-bottom: 1px solid #BEBEBE;
+}
+
+.dashboard-header h2 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }
 
 
