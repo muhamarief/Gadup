@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :phone_number, uniqueness: true
 
   has_many :api_keys, as: :owner
-  has_many :wallets, as: :owner
+  has_many :wallets, as: :owner, dependent: :destroy
 
   def confirmation_expired?
     #3days duration

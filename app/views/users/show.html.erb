@@ -1,8 +1,8 @@
 <%= render template: "component/_headers"%>
 
-<div id='dashboard-container' class='col-md-10 col-sm-10 col-lg-10 col-xs-12 col-md-offset-1 col-sm-offset-1 col-lg-offset-1'>
+<div class='dashboard-container col-md-10 col-sm-10 col-lg-10 col-xs-12 col-md-offset-1 col-sm-offset-1 col-lg-offset-1'>
     <div class='dashboard-header'>
-        <h2 class='dashboard-header-context'> DASHBOARD <small> Statistic Overview </small></h2>
+        <h2 class='dashboard-header-context'> Dashboard <small> Statistic Overview </small></h2>
     <!-- div .dashboard-head -->
     </div>
     <div class='row'>
@@ -61,10 +61,10 @@
                     Wallet Settings
                 </div>
                 <div class="panel-body">
-                  <a href='#'>
-                    View Details
-                    <i class="fa fa-arrow-right pull-right" aria-hidden="true"></i>
-                  </a>
+                  <%= link_to user_wallet_wallet_settings_path(@user, @wallet) do %>
+                      View Details
+                      <i class="fa fa-arrow-right pull-right" aria-hidden="true"></i>
+                  <% end %>
                 </div>
             <!-- div .panel panel-primary -->
             </div>

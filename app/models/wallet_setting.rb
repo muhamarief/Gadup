@@ -1,3 +1,3 @@
 class WalletSetting < ApplicationRecord
-  belongs_to :wallets
+  belongs_to :wallet
 end
