@@ -15,7 +15,7 @@ class EntriesController < ApplicationController
 
   def public_news
     if params[:id]
-      @entries = Entry.where('id < ?', params[:id]).order('id DESC').limit(16)
+      @entries = Entry.where('id < ?', params[:id]).order('id DESC').limit(15)
       @entries = @entries.each_slice(3).to_a
     else
       @first_entry = Entry.all.last
