@@ -1,8 +1,8 @@
 class Wallet < ApplicationRecord
   belongs_to :owner, polymorphic: true
-  has_many :incomes
-  has_many :spendings
-  has_one :wallet_setting
+  has_many :incomes, dependent: :destroy
+  has_many :spendings, dependent: :destroy
+  has_one :wallet_setting, dependent: :destroy
 
   validates :owner, presence: true
   validates :owner_id, uniqueness: true
