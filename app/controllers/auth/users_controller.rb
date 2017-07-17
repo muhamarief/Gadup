@@ -4,13 +4,13 @@ class Auth::UsersController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       if user.email_confirmed
-      # #api based rails
-      # api_key = user.api_keys.create!
-      # render json: { access_token: api_key.access_token }
+        # #api based rails
+        # api_key = user.api_keys.create!
+        # render json: { access_token: api_key.access_token }
 
-      #view based rails
-      session[:user_id] = user.id
-      redirect_to user_path(user.id)
+        #view based rails
+        session[:user_id] = user.id
+        redirect_to user_path(user.id)
       else
         flash.now.alert = 'Please open your email and follow the confirmation steps'
         redirect_to root_path
