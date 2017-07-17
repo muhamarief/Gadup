@@ -9,8 +9,8 @@
         </div>
         <div class='main-links hidden-xs'>
             <%= link_to 'Dashboard', root_path%>
-            <%= link_to 'Wallets', v1_user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) %>
-            <%=link_to 'News', v1_entries_path%>
+            <%= link_to 'Wallets', user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) %>
+            <%=link_to 'News', news_path%>
             <a href="#">
                 Promo
             </a>
@@ -36,14 +36,14 @@
             </a>
             <ul class='dropdown-menu'>
                 <li>
-                    <%=link_to edit_v1_user_path(current_authenticatee) do %>
+                    <%=link_to edit_user_path(current_authenticatee) do %>
                         <i class='fa fa-user head-icons'></i>
                         Profile Settings
                     <% end %>
                 </li>
                 <li class='divider'></li>
                 <li>
-                    <%=link_to v1_auth_user_path(current_authenticatee), method: :delete do%>
+                    <%=link_to auth_user_path(current_authenticatee), method: :delete do%>
                       <i class="fa fa-sign-out" aria-hidden="true"></i> Log Out
                     <% end %>
                 </li>
@@ -61,10 +61,10 @@
                     <%= link_to 'Dashboard', root_path%>
                 </li>
                 <li>
-                    <%= link_to 'Wallets', v1_user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) %>
+                    <%= link_to 'Wallets', user_wallet_path(current_authenticatee, current_authenticatee.wallets.first) %>
                 </li>
                 <li>
-                    <%=link_to 'News', v1_entries_path%>
+                    <%=link_to 'News', news_path%>
                 </li>
                 <li>
                     <a href="#">
@@ -81,7 +81,7 @@
                 </li>
                 <li class='divider'></li>
                 <li>
-                    <%=link_to v1_auth_user_path(current_authenticatee), method: :delete do%>
+                    <%=link_to auth_user_path(current_authenticatee), method: :delete do%>
                       <i class="fa fa-sign-out" aria-hidden="true"></i> Log Out
                     <% end %>
                 </li>

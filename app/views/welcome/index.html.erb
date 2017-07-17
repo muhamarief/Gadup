@@ -14,31 +14,26 @@
                         <li>
                           <%= link_to 'Home', root_path %>
                         </li>
-                        <li>
-                            <a href='#'>
-                                Wallets
-                            </a>
-                        </li>
+
                         <li>
                             <a href='#'>
                                 Promo
                             </a>
                         </li>
+
                         <li>
                             <a href='#'>
                                 About Us
                             </a>
                         </li>
+
                         <li>
                             <%= link_to 'News', news_path %>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class='btn-header'>
-                            <%= link_to 'User Login', hello_user_welcome_index_path, class: 'header-auth'%>
-                        </li>
-                        <li class='btn-header'>
-                            <%= link_to 'Vendor Login', hello_vendor_welcome_index_path, class: 'header-auth' %>
+                            <%= link_to 'SIGN UP / LOG IN', hello_user_welcome_index_path, class: 'header-auth'%>
                         </li>
                     </ul>
                 <!-- div .header-links hidden-xs -->
@@ -141,7 +136,7 @@
         </div>
     <% end %>
     <div class='more-btn'>
-        <%=button_to "More News", v1_entries_path, method: :get, class: 'btn btn-default btn-more__news'%>
+        <%=button_to "More News", news_path, method: :get, class: 'btn btn-default btn-more__news'%>
     </div>
 <!-- div #welcome-entries -->
 </div>
