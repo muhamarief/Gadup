@@ -3,3 +3,5 @@ runtime: ruby
 health_check:
   enable_health_check: False
 entrypoint: bundle exec rackup -p 8080
+network:
+  instance_tag: gadup-prod
