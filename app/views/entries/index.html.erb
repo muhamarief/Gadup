@@ -9,12 +9,12 @@
                 </div>
 
                 <div class='col-md-5 col-lg-5 col-xs-12 col-sm-12'>
-                    <%= link_to @first_entry.entries_url, class: 'trending-title' do %>
+                    <%= link_to @first_entry.entries_url, class: 'trending-title', target: '_blank' do %>
                         <h2><%= @first_entry.title %></h2>
                     <% end %>
 
                     <span class='row entry-info col-md-12 col-lg-12 col-xs-12 col-sm-12'>
-                        <%=link_to "#{@first_entry.feed.name} - #{@first_entry.author}", @first_entry.feed.url %>
+                        <%=link_to "#{@first_entry.feed.name} - #{@first_entry.author}", @first_entry.feed.url, target: '_blank' %>
                     </span>
 
                     <div><%= @first_entry.content%></div>
