@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  devise_for :admins
-
   root 'welcome#index'
   get '_ah/health', to: 'app_engine#health'
 
@@ -34,13 +31,13 @@ Rails.application.routes.draw do
     resources :wallets, only: [:create, :show] do
       resources :incomes, only: :create
       resources :spendings, only: :create
+      resources :wallet_settings, only: [:index, :create, :update]
     end
   end
   get 'news', to: 'entries#public_news'
   resources :entries, only: :index do
     get 'news', on: :collection
   end
-
 
   #authentication pages
   namespace :auth do
@@ -49,6 +46,7 @@ Rails.application.routes.draw do
   end
 
 
+  # GADUP API ROUTES
   api_version(:module => "Api::V1", :header => {:name => "Accept", :value => "application/vnd.gadup.com; version=1"}, :path => {:value => "v1"} ) do
 
     #admin pages
