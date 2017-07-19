@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717050745) do
+ActiveRecord::Schema.define(version: 20170717150637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20170717050745) do
   end
 
   create_table "incomes", force: :cascade do |t|
-    t.float    "nominal",                          null: false
+    t.decimal  "nominal",                          null: false
     t.datetime "transaction_time",                 null: false
     t.integer  "wallet_id",                        null: false
     t.datetime "created_at",                       null: false
@@ -94,19 +94,21 @@ ActiveRecord::Schema.define(version: 20170717050745) do
     t.json     "photos"
     t.string   "currency",         default: "IDR", null: false
     t.integer  "income_type",                      null: false
+    t.boolean  "classification"
     t.index ["wallet_id"], name: "index_incomes_on_wallet_id", using: :btree
   end
 
   create_table "spendings", force: :cascade do |t|
-    t.float    "nominal",                       null: false
-    t.datetime "spending_time",                 null: false
-    t.integer  "wallet_id",                     null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.decimal  "nominal",                        null: false
+    t.datetime "spending_time",                  null: false
+    t.integer  "wallet_id",                      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "description"
     t.json     "photos"
-    t.string   "currency",      default: "IDR", null: false
-    t.integer  "spending_type",                 null: false
+    t.string   "currency",       default: "IDR", null: false
+    t.integer  "spending_type",                  null: false
+    t.boolean  "classification"
     t.index ["wallet_id"], name: "index_spendings_on_wallet_id", using: :btree
   end
 
