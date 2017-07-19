@@ -59,7 +59,7 @@
                                 Add Incomes Information
                             </button>
 
-                            <%= render template: 'component/_add_income'%>
+                            <%= render template: 'component/_add_monthly_income'%>
                     <% else %>
                         <div class='table-responsive'>
                             <table class='table table-stripped'>
@@ -81,7 +81,7 @@
                                                   <%= income.transaction_time.to_date %>
                                                 </td>
                                                 <td>
-                                                  <%= income.nominal%>
+                                                  <%= amount_to_rupiah(income.nominal)%>
                                                 </td>
                                                 <td>
                                                   <%= income.description %>
@@ -141,7 +141,7 @@
                                               <%= spending.spending_time.to_date %>
                                             </td>
                                             <td>
-                                              <%= spending.nominal%>
+                                              <%= amount_to_rupiah(spending.nominal)%>
                                             </td>
                                             <td>
                                               <%= spending.description %>
@@ -161,7 +161,7 @@
                         <button type='button' class='btn btn-success center-block' data-toggle='modal' data-target="#spendingModal">
                             New Spending
                         </button>
-                        <%= render template: 'component/_add_spending'%>
+                        <%= render template: 'component/_add_monthly_spending'%>
 
                     <% end %>
                 </div>
