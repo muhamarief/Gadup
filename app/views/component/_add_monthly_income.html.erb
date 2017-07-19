@@ -10,21 +10,14 @@
                 </div>
 
                 <div class="modal-body">
-                    <div class='form-group col-md-4 col-sm-4 col-xs-4 col-lg-4'>
+                    <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                         <%= f.label :nominal %><br/>
                         <%= f.text_field :nominal, class: 'form-control' %>
                     </div>
-
-                    <div class='form-group col-md-4 col-sm-4 col-xs-4 col-lg-4'>
+                    <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                         <%= f.label :spending_type %><br/>
-                        <%= f.select :spending_type, [["Daily", 1],["Monthly", 2]], {}, {class: 'form-control'} %>
+                        <%= f.select :spending_type, [["Monthly", 2]], {}, {class: 'form-control'} %>
                     </div>
-
-                    <div class='form-group col-md-4 col-sm-4 col-xs-4 col-lg-4'>
-                        <%= f.label :tipe_transaksi %><br/>
-                        <%= f.select :classification, [["Prioritas", true],["Non-Prioritas", false]], {}, {class: 'form-control'} %>
-                    </div>
-
                     <div class='form-group'>
                         <%= f.label :spending_time%> <br/>
                         <div class='input-group date' id='datetimepicker2'>
@@ -32,7 +25,6 @@
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                     </div>
-
                     <div class='form-group'>
                         <%= f.label :description %><br/>
                         <%= f.text_area :description, class: 'form-control' %>
