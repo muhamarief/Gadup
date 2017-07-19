@@ -10,19 +10,13 @@
               </div>
 
               <div class="modal-body">
-                  <div class='form-group col-md-4 col-sm-4 col-xs-4 col-lg-4'>
+                  <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                       <%= f.label :nominal %><br/>
                       <%= f.text_field :nominal, class: 'form-control' %>
                   </div>
-                  
-                  <div class='form-group col-md-4 col-sm-4 col-xs-4 col-lg-4'>
+                  <div class='form-group col-md-6 col-sm-6 col-xs-6 col-lg-6'>
                       <%= f.label :income_type %><br/>
-                      <%= f.select :income_type, [["Daily", 1],["Monthly", 2]], {}, {class: 'form-control'} %>
-                  </div>
-
-                  <div class='form-group col-md-4 col-sm-4 col-xs-4 col-lg-4'>
-                      <%= f.label :tipe_transaksi %><br/>
-                      <%= f.select :classification, [["Prioritas", true],["Non-Prioritas", false]], {}, {class: 'form-control'} %>
+                      <%= f.select :income_type, [["Monthly", 2]], {}, {class: 'form-control'} %>
                   </div>
 
                   <div class='form-group'>
