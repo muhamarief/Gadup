@@ -57,11 +57,10 @@
                     <table class='table table-hover table-bordered'>
                         <thead>
                             <tr>
-                                <th> Id </th>
-                                <th> Nominal </th>
                                 <th> Date</th>
-                                <th> Time </th>
+                                <th> Nominal </th>
                                 <th> Description </th>
+                                <th> Tipe Transaksi </th>
                             </tr>
                         </thead>
 
@@ -69,11 +68,14 @@
                             <tbody>
                                 <% @wallet.incomes.each do |income| %>
                                     <tr>
-                                        <td><%=income.id%></td>
-                                        <td><%=income.nominal.round(2)%></td>
-                                        <td><%=income.transaction_time.to_date.strftime("%A, %d-%m-%Y")%></td>
-                                        <td><%=income.transaction_time.to_time.strftime('%H:%M')%></td>
+                                        <td><%=income.transaction_time.to_date.strftime("%d-%m-%Y")%></td>
+                                        <td><%=amount_to_rupiah(income.nominal)%></td>
                                         <td><%=income.description%></td>
+                                        <% if income.classification %>
+                                            <td>Prioritas</td>
+                                        <% else %>
+                                            <td> Non-Prioritas</td>
+                                        <% end %>
                                     </tr>
                                 <% end %>
                           </tbody>
@@ -100,22 +102,24 @@
                     <table class='table table-hover table-bordered'>
                       <thead>
                           <tr>
-                              <th align='right'> Id </th>
                               <th align='center'> Nominal </th>
                               <th align='center'> Date</th>
-                              <th align='right'> Time </th>
                               <th align='center'> Description </th>
+                              <th> Tipe Transaksi </th>
                           </tr>
                       </thead>
                         <% if !@wallet.spendings.empty?%>
                             <tbody>
                                 <%@wallet.spendings.each do |spending|%>
                                     <tr>
-                                        <td><%=spending.id%></td>
-                                        <td><%=spending.nominal.round(2)%></td>
-                                        <td><%=spending.spending_time.to_date.strftime("%A, %d-%m-%Y")%></td>
-                                        <td><%=spending.spending_time.to_time.strftime('%H:%M')%></td>
+                                        <td><%=spending.spending_time.to_date.strftime("%d-%m-%Y")%></td>
+                                        <td><%=amount_to_rupiah(spending.nominal)%></td>
                                         <td><%=spending.description%></td>
+                                        <% if spending.classification %>
+                                            <td>Prioritas</td>
+                                        <% else %>
+                                            <td> Non-Prioritas</td>
+                                        <% end %>
                                     </tr>
                                 <% end %>
                             </tbody>

@@ -1,4 +1,5 @@
 class WalletSettingsController < ApplicationController
+
   before_action :authenticate_user!, only: [:index, :update]
   layout 'user', only: [:index, :create, :update]
 
