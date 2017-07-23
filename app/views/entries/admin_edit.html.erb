@@ -46,6 +46,13 @@
                         </div>
                     </div>
 
+                    <div class='row'>
+                        <div class='form-group col-md-6 col-xs-6 col-sm-6 col-lg-6'>
+                            <%= f.label :category %>
+                            <%= f.select :category, [['News', 1],['Tips', 2]], class: 'form-control' %><br/>
+                        </div>
+                    </div>
+
                         <%= f.submit 'Save Changes', class: 'btn btn-success pull-right' %>
 
                 <!-- div .col-md-8 col-sm-8 col-xs-8 col-lg-8 -->
