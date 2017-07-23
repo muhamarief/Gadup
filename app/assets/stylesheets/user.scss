@@ -7,7 +7,12 @@
   margin-top: 30px;
   background-color: #fff;
   border: 3px solid #BACCD6;
-  border-radius: 7px;
+  border-radius: 3px;
+}
+
+#dashboard-wallet-news {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .dashboard-header-context {
@@ -105,9 +110,28 @@
   margin-top: 20px;
 }
 
+.head-content {
+  padding-bottom: 15px;
+}
+
 .select-date a:hover{
   text-decoration: none;
 }
+
+.news-image {
+  width: 90%;
+  height: 7em;
+}
+
+.news-title h4 {
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 250;
+  color: black;
+  width: inherit;
+  font-family: tahoma,sans-serif;
+}
+
 // PART 2 USER SHOW AND EDIT PAGE
 .body-header {
   margin: auto;
