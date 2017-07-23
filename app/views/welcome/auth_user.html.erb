@@ -2,24 +2,13 @@
     <div class='auth-page__header'>
         <center>
             <%=image_tag 'big-logo.png', class: 'image-header__auth'%>
-            <h3> Asisten pribadi untuk managemen keuangan dan aktivitas anda </h3>
         </center>
     </div>
 
-    <div class="auth-page__actions">
-        <div class='header__container'>
-            <h3> Masuk ke Gadup </h3>
-        </div>
+    <div class="login-container">
 
         <div class='row'>
-            <div class='col-md-6 col-xs-12 col-sm-12 col-lg-6'>
-              <h4> Masuk Dengan Social Media </h4>
-            </div>
-
-            <div class='col-md-6 col-xs-12 col-sm-12 col-lg-6'>
-                <center>
-                    <h4> Masuk Dengan Email </h4>
-                </center>
+            <div class='col-md-12 col-xs-12 col-sm-12 col-lg-12'>
 
                 <%= form_tag auth_users_path do %>
                     <div class='form-group'>
@@ -34,10 +23,10 @@
                     <div class="actions">
                         <%= submit_tag "Log In" %>
                     </div>
+                    <%=link_to "Daftar Akun Baru", new_user_path %>
                 <% end %>
 
             </div>
-            <%=link_to "bergabung dengan email pribadi", new_user_path %>
         <!-- div .row -->
         </div>
     <!-- div .container auth-page__actions -->
