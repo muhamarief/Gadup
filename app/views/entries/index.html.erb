@@ -1,5 +1,4 @@
 <%= render template: "component/_public_header"%>
-
 <div class='page-content col-md-8 col-lg-8 col-sm-12 col-xs-12 col-md-offset-2 col-lg-offset-2'>
     <div class='content-container'>
         <div class='trending-news'>
@@ -23,6 +22,31 @@
             </div>
         <!-- div .trending-news -->
         </div>
+
+        <div class='tips row'>
+            <% @tips.each do |tip| %>
+                <div class='each-entry'>
+                    <%=image_tag "#{tip.image_url}", class: "image-entry"%>
+
+
+                    <div class='entry-column'>
+                        <%= link_to tip.entries_url, class: 'entry-title', target: '_blank' do %>
+                            <h4><%= tip.title %></h4>
+                        <% end %>
+                        <div class='row entry-info'>
+                            <div class='col-md-12 col-lg-12 col-xs-12 col-sm-12'>
+                                <%=link_to tip.feed.url, target: '_blank' do %>
+                                    <%= tip.feed.name %> - <%= tip.author%>
+                                <% end %>
+                            </div>
+                        <!-- div .row entry-info -->
+                        </div>
+                        <div><%= tip.content%>&nbsp;&nbsp;<%=link_to 'Read More', tip.feed.url %></div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
         <div class='news'>
             <% @entries.each do |entries| %>
                 <%= render 'entry', entries: entries %>

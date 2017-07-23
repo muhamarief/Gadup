@@ -44,10 +44,17 @@
                                     <%= f.text_field :author, class:'form-control' %>
                                 </div>
 
-                                <div class='input-group date' id='datetimepicker3'>
+                                <div class='row'>
+                                    <div class='form-group col-md-6 col-xs-6 col-sm-6 col-lg-6'>
+                                        <%= f.label :category %>
+                                        <%= f.select :category, [['News', 1],['Tips', 2]] %><br/>
+                                    </div>
+
                                     <%= f.label :published_at %><br/>
-                                    <%= f.text_field :published, class: 'form-control' %>
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    <div class='input-group date col-md-6 col-xs-6 col-sm-6 col-lg-6' id='datetimepicker3'>
+                                        <%= f.text_field :published, class: 'form-control' %>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
                                 </div>
                             </div>
 

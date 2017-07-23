@@ -15,11 +15,30 @@ class EntriesController < ApplicationController
 
   def public_news
     if params[:id]
-      @entries = Entry.where('id < ?', params[:id]).order('id DESC').limit(15)
+      @entries = Entry.where('id < ?', params[:id]).where('category = ?', 1).order('id DESC').limit(15)
       @entries = @entries.each_slice(3).to_a
     else
-      @first_entry = Entry.all.last
-      @entries = Entry.all.order('id DESC').limit(16)
+      @first_entry = Entry.where('category = ?', 1).last
+      @entries = Entry.where('category = ?', 1).order('id DESC').limit(16)
+      @entries = @entries[1..-1].each_slice(3).to_a
+      @tips = Entry.where('category = ?', 2).order('id DESC').limit(3)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+    render :index
+  end
+
+  def public_articles
+    if params[:id]
+      @entries = Entry.where('id < ?', params[:id]).where('category = ?', 2).order('id DESC').limit(15)
+      @entries = @entries.each_slice(3).to_a
+    else
+      @first_entry = Entry.where('category = ?', 2).last
+      @entries = Entry.where('category = ?', 2).order('id DESC').limit(16)
       @entries = @entries[1..-1].each_slice(3).to_a
     end
 
@@ -59,6 +78,8 @@ class EntriesController < ApplicationController
                                   :title,
                                   :content,
                                   :author,
-                                  :published)
+                                  :published,
+                                  :category
+                                  )
   end
 end
