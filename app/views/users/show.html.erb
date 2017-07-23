@@ -72,35 +72,39 @@
         </div>
     <!-- div .row -->
     </div>
-    <div id='dashboard-wallet'>
-        <div id='wallet-summary'>
-            <div class='select-date'>
-                <%@this_week.each do |date| %>
-                    <% if date == Date.today %>
-                        <a class='current' href='#'>
-                          Today
-                        </a>
-                    <% else %>
-                        <a href='#'>
-                          <%= date %>
-                        </a>
-                    <% end %>
+<!-- div #dashboard-container -->
+</div>
 
-                <% end %>
-            </div>
-            <div class='col-md-6 col-lg-6 col-sm-12 col-xs-12'>
-            </div>
-            <div class='col-md-6 col-lg-6 col-sm-12 col-xs-12'>
-            </div>
-        <!-- div #wallet-summary -->
-        </div>
-        <div class='col-md-6 col-lg-6 col-sm-12 col-xs-12'>
-            <div class='container'>
-
-            <!-- div .container -->
-            </div>
+<div id='dashboard-wallet-news' class='col-md-10 col-sm-10 col-lg-10 col-xs-12 col-md-offset-1 col-sm-offset-1 col-lg-offset-1'>
+    <div class='dashboard-container col-md-8 col-lg-8 col-sm-8 col-xs-12'>
+        <div class='head-content'>
+            <h3> My Wallet </h3>
         </div>
     <!-- div #dashboard-wallet -->
     </div>
-<!-- div #dashboard-container -->
+
+    <div class='dashboard-container col-md-4 col-lg-4 col-sm-4 hidden-xs'>
+        <div class='head-content'>
+            <h3 align='center'> News </h3>
+        </div>
+        <div class='news-content'>
+            <% @entries_array.each do |entries| %>
+                <div class='row'>
+                    <% entries.each do |entry| %>
+                        <div class='col-md-6 col-lg-6 col-sm-6'>
+                          <%=image_tag "#{entry.image_url}", class: "news-image"%>
+
+
+                          <div class='entry-column'>
+                              <%= link_to entry.entries_url, class: 'news-title', target: '_blank' do %>
+                                  <h4><%= entry.title %></h4>
+                              <% end %>
+                          </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    <!-- div #dashboard-news -->
+    </div>
 </div>
