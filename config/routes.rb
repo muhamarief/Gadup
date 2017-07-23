@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     end
   end
   get 'news', to: 'entries#public_news'
+  get 'finance_tips', to: 'entries#public_articles'
   resources :entries, only: :index do
     get 'news', on: :collection
   end
