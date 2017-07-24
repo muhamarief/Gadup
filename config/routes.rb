@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :feeds, except: :create, constraints: { subdomain: 'admin' } do
     resources :entries, except: :create
   end
+  resources :gadup_tips, constraints: { subdomain: 'admin' } 
+
 
   #users pages
   resources :users do
@@ -39,6 +41,8 @@ Rails.application.routes.draw do
   resources :entries, only: :index do
     get 'news', on: :collection
   end
+
+
 
   #authentication pages
   namespace :auth do
