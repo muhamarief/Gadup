@@ -81,5 +81,9 @@ gem 'jquery-ui-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
-#rss feeds
-gem 'feedjira'
+#uploading image
+gem 'carrierwave', '~> 1.0'
+gem "fog"
+
+#resizing and images
+gem "mini_magick"
