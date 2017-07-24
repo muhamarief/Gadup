@@ -70,7 +70,6 @@ class EntriesController < ApplicationController
     redirect_to feeds_path
   end
 
-
   private
   def entry_params
     params.require(:entry).permit(:entries_url,
