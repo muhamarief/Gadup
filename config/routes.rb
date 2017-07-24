@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   resources :feeds, except: :create, constraints: { subdomain: 'admin' } do
     resources :entries, except: :create
   end
-  resources :gadup_tips, constraints: { subdomain: 'admin' } 
+  resources :gadup_tips, except: :show, constraints: { subdomain: 'admin' }
+  get 'tips/:id', to: 'gadup_tips#show'
 
 
   #users pages
