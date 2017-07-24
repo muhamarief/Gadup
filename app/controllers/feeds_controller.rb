@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   before_action :authenticate_admin!, only: [:create, :update, :destroy]
-  layout :reslove_layout
+  layout :resolve_layout
 
   def create
     @feed = Feed.new(feed_params)
@@ -56,7 +56,7 @@ class FeedsController < ApplicationController
     params.require(:feed).permit(:name, :url, :description)
   end
 
-  def reslove_layout
+  def resolve_layout
     case action_name
     when "index", "show"
       if current_authenticatee.kind_of?(Admin)

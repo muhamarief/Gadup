@@ -1,0 +1,26 @@
+<div class='row'>
+  <div class='col-md-4 col-lg-4 col-xs-4'>
+      <%if @gadup_tip.display_picture.nil?%>
+          <img src="http://placehold.it/300x200" alt="" class="img-responsive" />
+          <%= f.file_field :display_picture %>
+      <% else %>
+          <%=image_tag "#{@gadup_tip.display_picture}" %>
+          <%= f.file_field :display_picture %>
+      <% end %>
+  </div>
+  <div class='col-md-8 col-lg-8 col-xs-8'>
+      <div class='form-group'>
+          <%= f.label :title %><br/>
+          <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class='form-group'>
+        <%= f.label :author %>
+        <%= f.text_field :author, class: 'form-control' %>
+      </div>
+      <div class='form-group'>
+        <%= f.label :content %>
+        <%= f.text_area :content, class: 'form-control', cols: '30', rows: '15' %>
+      </div>
+      <button class="btn btn-lg btn-success btn-block" type="submit">Save</button>
+  </div>
+</div>
