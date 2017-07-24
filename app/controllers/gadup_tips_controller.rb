@@ -56,11 +56,10 @@ class GadupTipsController < ApplicationController
   end
 
   def create_entry
-    @entry = Entry.new(feed_id: @feed.id, entries_url: "http://gadup.co.id/tips/#{@gadup_tip.id}", title: @gadup_tip.title, content: @gadup_tip.content.first(200), author: @gadup_tip.author, image_url: @gadup_tip.display_picture, published: @gadup_tip.created_at, admin_id: 1, category: 2)
+    @entry = Entry.new(feed_id: @feed.id, entries_url: "http://localhost:3000/tips/#{@gadup_tip.id}", title: @gadup_tip.title, content: @gadup_tip.content.first(200), author: @gadup_tip.author, image_url: @gadup_tip.display_picture, published: @gadup_tip.created_at, admin_id: 1, category: 2)
     if @entry.save
       return true
     else
-      byebug
       return false
     end
   end
