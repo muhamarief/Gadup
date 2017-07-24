@@ -1,0 +1,16 @@
+<%= render template: "component/_header_admins.html.erb"%>
+<div class='col-md-8 col-lg-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2'>
+    <div class='row'>
+        <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+            <h2 class='headers-text'> Gadup Tips <small> New Entry </small> </h2>
+        </div>
+    </div>
+    <div id='gadup-tip__form' class='jumbotron'>
+        <%= form_for @gadup_tip do |f| %>
+            <%=render partial: 'gadup_tip', locals: { f: f }%>
+        <% end %>
+    </div>
+
+
+
+</div>
