@@ -1,0 +1,21 @@
+<%= render template: "component/_header_admins.html.erb"%>
+<div class='col-md-8 col-lg-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2'>
+    <div class='row'>
+        <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+            <h2 class='headers-text'> Gadup Tips <small> Entries </small> </h2>
+        </div>
+        <div class='btn-admin col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+            <%=button_to 'New Tip', new_gadup_tip_path, method: :get, class: 'btn btn-info btn-md pull-right'%>
+        </div>
+    </div>
+
+    <div class='jumbotron'>
+        <%if @gadup_tips.length < 1 %>
+            <center>
+                <h2> WE DONT HAVE TIPS FOR OUR USER YET</h2><br/>
+                <h4> Lets add on our tips and share it to our community</h4>
+            </center>
+        <% else %>
+        <% end %>
+    </div>
+</div>
