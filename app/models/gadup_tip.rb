@@ -1,0 +1,2 @@
+class GadupTip < ApplicationRecord
+end
