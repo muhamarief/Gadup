@@ -10,3 +10,29 @@
 textarea {
   resize: none;
 }
+
+// user show page
+.gaduptip-header__image {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.gaduptip-head__content p {
+  color: grey;
+  font-weight: 10px;
+  font-size: 15px;
+}
+
+.big-image {
+  width: 50%;
+}
+
+.gaduptip-head__content, .gaduptip-body__content {
+  text-align: center;
+}
+
+.gaduptip-body__content {
+  margin-top: 50px;
+}
