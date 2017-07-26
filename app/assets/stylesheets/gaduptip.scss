@@ -35,10 +35,37 @@ textarea {
   width: 50%;
 }
 
-.gaduptip-head__content, .gaduptip-body__content {
+.gaduptip-head__content {
   text-align: center;
 }
 
 .gaduptip-body__content {
   margin-top: 50px;
+}
+
+
+// index admin
+.admin-tip__each__odd, .admin-tip__each__even {
+  height: 150px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 20px;
+}
+
+.admin-tip__each__odd {
+  border: 1px solid white;
+  background-color: white;
+}
+
+.admin-tip__each__even {
+  background-color: #cccccc;
+  border: 1px solid #cccccc;
+}
+
+.tip-title {
+  font-weight: bold !important;
+}
+
+.tip-content {
+  font-size: 18px !important;
 }

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
 
   #users pages
+  get 'dashboard/:id/:full_name', to: 'users#show', as: 'dashboard'
   resources :users do
     member do
       get :confirm_email
