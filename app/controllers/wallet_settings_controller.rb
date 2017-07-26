@@ -4,6 +4,7 @@ class WalletSettingsController < ApplicationController
   layout 'user', only: [:index, :create, :update]
 
   def index
+    @user = current_authenticatee
     @wallet = Wallet.find(params[:wallet_id])
     @wallet_setting = @wallet.wallet_setting
     if @wallet_setting.nil?
