@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170723085448) do
+ActiveRecord::Schema.define(version: 20170726105121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(version: 20170723085448) do
     t.string   "author",          null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "entry_id"
+    t.index ["entry_id"], name: "index_gadup_tips_on_entry_id", unique: true, using: :btree
   end
 
   create_table "incomes", force: :cascade do |t|
@@ -171,5 +173,6 @@ ActiveRecord::Schema.define(version: 20170723085448) do
     t.index ["owner_type", "owner_id"], name: "index_wallets_on_owner_type_and_owner_id", using: :btree
   end
 
+  add_foreign_key "gadup_tips", "entries"
   add_foreign_key "wallet_settings", "wallets"
 end
