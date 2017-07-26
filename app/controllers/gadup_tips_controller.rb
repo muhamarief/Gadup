@@ -1,7 +1,8 @@
 class GadupTipsController < ApplicationController
   before_action :authenticate_admin!, except: :show
-  before_action :authenticate_user!, only: :show
-  layout 'admin'
+  layout 'admin', except: :show
+  layout 'user', only: :show
+
 
   def new
     @gadup_tip = GadupTip.new
@@ -39,12 +40,25 @@ class GadupTipsController < ApplicationController
   end
 
   def edit
+    @gadup_tip = GadupTip.find(params[:id])
   end
 
   def update
+    @gadup_tip = GadupTip.find(params[:id])
+    if @gadup_tip.update(gadup_tips_params)
+      redirect_to gadup_tips_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @gadup_tip = GadupTip.find(params[:id])
+    if @gadup_tip.destroy
+      redirect_to gadup_tips_path
+    else
+      redirect_to admins_path
+    end
   end
 
   private
