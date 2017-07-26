@@ -1,4 +1,8 @@
-<%= render template: "component/_headers"%>
+<% if current_authenticatee %>
+    <%= render template: "component/_headers"%>
+<% else %>
+    <%= render template: "component/_public_header"%>
+<% end %>
 
 <div class='gaduptip-header__image'>
     <%=image_tag "#{@gadup_tip.display_picture}", class: 'big-image' %>

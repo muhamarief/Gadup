@@ -7,7 +7,7 @@
     </li>
 
     <li>
-        <%= link_to user_path(current_authenticatee) do %>
+        <%= link_to dashboard_path(current_authenticatee, current_authenticatee.full_name) do %>
             <i class="fa fa-tachometer" aria-hidden="true"></i>
             &nbsp; Dasboard
         <% end %>

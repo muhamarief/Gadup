@@ -87,7 +87,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user.id)
+      redirect_to dashboard_path(current_authenticatee, current_authenticatee.full_name)
     else
       render 'welcome/edit'
     end
