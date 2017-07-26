@@ -22,7 +22,6 @@ textarea {
   margin-top: 50px;
   margin-bottom: 30px;
   text-align: center;
-  width: 100%;
 }
 
 .gaduptip-head__content p {
@@ -32,7 +31,9 @@ textarea {
 }
 
 .big-image {
-  width: 50%;
+  margin-top: 20px;
+  width: 100%;
+  object-fit: contain;
 }
 
 .gaduptip-head__content {
