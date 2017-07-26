@@ -45,7 +45,7 @@ class GadupTipsController < ApplicationController
 
   def update
     @gadup_tip = GadupTip.find(params[:id])
-    if @gadup_tip.update(gadup_tips_params)
+    if @gadup_tip.update(gadup_tips_params) && update_entry
       redirect_to gadup_tips_path
     else
       render :edit
@@ -72,6 +72,17 @@ class GadupTipsController < ApplicationController
   def create_entry
     @entry = Entry.new(feed_id: @feed.id, entries_url: "http://localhost:3000/tips/#{@gadup_tip.id}", title: @gadup_tip.title, content: @gadup_tip.content.first(200), author: @gadup_tip.author, image_url: @gadup_tip.display_picture, published: @gadup_tip.created_at, admin_id: 1, category: 2)
     if @entry.save
+      @gadup_tip.entry_id = @entry.id
+      @gadup_tip.save
+      return true
+    else
+      return false
+    end
+  end
+
+  def update_entry
+    @entry = @gadup_tip.entry
+    if entry.update(title: @gadup_tip.title, content: @gadup_tip.content.first(200), author: @gadup_tip.author, image_url: @gadup_tip.display_picture)
       return true
     else
       return false
