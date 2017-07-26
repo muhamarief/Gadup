@@ -23,10 +23,11 @@ Rails.application.routes.draw do
     resources :entries, except: :create
   end
   resources :gadup_tips, except: :show, constraints: { subdomain: 'admin' }
-  get 'tips/:id', to: 'gadup_tips#show'
+  get 'tips/:id', to: 'gadup_tips#show', as: 'tips'
 
 
   #users pages
+  get 'dashboard/:id/:full_name', to: 'users#show', as: 'dashboard'
   resources :users do
     member do
       get :confirm_email

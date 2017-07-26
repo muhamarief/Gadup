@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   def index
     # redirect_to news_path
     if current_authenticatee && info_updated?
-      redirect_to user_path(current_authenticatee)
+      redirect_to dashboard_path(current_authenticatee, current_authenticatee.full_name)
     elsif current_authenticatee && !info_updated?
       redirect_to edit_welcome_path(current_authenticatee)
     else
