@@ -13,6 +13,6 @@
         <p> by <%= @gadup_tip.author%> </p>
     </div>
     <div class='gaduptip-body__content'>
-        <p> <%=@gadup_tip.content %> </p>
+        <p> <%=@gadup_tip.content.html_safe %> </p>
     </div>
 </div>

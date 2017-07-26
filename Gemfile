@@ -87,3 +87,6 @@ gem "fog"
 
 #resizing and images
 gem "mini_magick"
+
+#rails
+gem 'trix'
