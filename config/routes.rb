@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'entries#public_news'
   get '_ah/health', to: 'app_engine#health'
 
   authenticated :user do
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :entries, except: :create
   end
   resources :gadup_tips, except: :show, constraints: { subdomain: 'admin' }
-  get 'tips/:id', to: 'gadup_tips#show'
+  get 'tips/:id', to: 'gadup_tips#show', as: 'tips'
 
 
   #users pages

@@ -1,14 +1,20 @@
-<%= render template: "component/_headers"%>
+<% if current_authenticatee %>
+    <%= render template: "component/_headers"%>
+<% else %>
+    <%= render template: "component/_public_header"%>
+<% end %>
 
-<div class='gaduptip-header__image'>
-    <%=image_tag "#{@gadup_tip.display_picture}", class: 'big-image' %>
-</div>
-<div class='gaduptip__content col-md-8 col-lg-8 col-sm-12 col-xs-12 col-md-offset-2 col-lg-offset-2'>
-    <div class='gaduptip-head__content'>
-        <h3><%= @gadup_tip.title %></h3>
-        <p> by <%= @gadup_tip.author%> </p>
-    </div>
-    <div class='gaduptip-body__content'>
-        <p> <%=@gadup_tip.content %> </p>
-    </div>
+<div class= 'gadup-tip_container col-md-8 col-md-offset-2'>
+  <div class='gaduptip-header__image'>
+      <%=image_tag "#{@gadup_tip.display_picture}", class: 'big-image' %>
+  </div>
+  <div class='gaduptip__content col-md-8 col-lg-8 col-sm-12 col-xs-12 col-md-offset-2 col-lg-offset-2'>
+      <div class='gaduptip-head__content'>
+          <h3><%= @gadup_tip.title %></h3>
+          <p> by <%= @gadup_tip.author%> </p>
+      </div>
+      <div class='gaduptip-body__content'>
+          <p> <%=@gadup_tip.content %> </p>
+      </div>
+  </div>
 </div>
