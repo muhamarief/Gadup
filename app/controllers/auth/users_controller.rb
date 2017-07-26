@@ -10,7 +10,7 @@ class Auth::UsersController < ApplicationController
 
         #view based rails
         session[:user_id] = user.id
-        redirect_to user_path(user.id)
+        redirect_to dashboard_path(current_authenticatee, current_authenticatee.full_name)
       else
         flash.now.alert = 'Please open your email and follow the confirmation steps'
         redirect_to root_path
