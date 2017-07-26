@@ -82,7 +82,7 @@ class GadupTipsController < ApplicationController
 
   def update_entry
     @entry = @gadup_tip.entry
-    if entry.update(title: @gadup_tip.title, content: @gadup_tip.content.first(200), author: @gadup_tip.author, image_url: @gadup_tip.display_picture)
+    if @entry.update(title: @gadup_tip.title, content: @gadup_tip.content.first(200), author: @gadup_tip.author, image_url: @gadup_tip.display_picture)
       return true
     else
       return false
