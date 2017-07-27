@@ -1,5 +1,5 @@
-<nav class="navbar navbar-fixed-top darkNav">
-    <div class="container-fluid">
+<nav class="navbar navbar-fixed-top header-static">
+    <div id='navbar-head' class="container-fluid">
         <div class="navbar-header">
             <a class="logo navbar-brand" href="#">
               <%=image_tag('big-logo.png', id: 'logo-header')%>
@@ -24,10 +24,9 @@
                 <li>
                     <%= link_to 'News', news_path %>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
+
                 <li class='btn-header'>
-                    <%= link_to 'SIGN UP / LOG IN', hello_user_welcome_index_path, class: 'header-auth'%>
+                    <%= link_to 'Masuk/bergabung', hello_user_welcome_index_path, class: 'header-auth'%>
                 </li>
             </ul>
         <!-- div .header-links hidden-xs -->
