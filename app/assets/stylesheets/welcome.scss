@@ -50,6 +50,10 @@
   padding-left: 150px;
 }
 
+#navbar-head {
+  margin-left: 130px;
+}
+
 .navbar-header {
   margin-right: 150px !important;
 }
@@ -61,6 +65,26 @@
     vertical-align: middle;
     margin-left: 20px;
   }
+
+  #navbar-head {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+  .navbar-header {
+    margin-right: 80px !important;
+  }
+
+  .header-links a {
+    margin-right: 0px !important;
+  }
+
+  #navbar-head {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 
 .header-links {
@@ -69,15 +93,19 @@
 }
 
 .header-links a {
-  padding-right: 70px;
-  padding-left: 20px;
+  padding: 15px 70px 15px 20px;
   font-size: 15px;
   font-family: 'proxima-nova-bold', "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
   font-weight: bold;
 }
 
 .header-links a {
-  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 14px;
+  color: #4A4A4A;
+  font-size: 12px;
   margin-right: 50px;
 }
 
@@ -88,17 +116,17 @@
   border-bottom: 1px solid #ffffff !important;
 }
 
-.darkNav {
-  border-bottom: 1px solid #233259 !important;
-  background-color: #233259 !important;
+.header-static {
+  border-bottom: 1px solid #d9d9d9 !important;
+  background-color: #fff !important;
+  font-family: sans-serif;
+  line-height: 0px;
 }
-
-
 
 .header-links a:hover {
   text-decoration: none;
-  color: #fff !important;
   background-color: transparent !important;
+  color: #4598cb;
 }
 
 .hero-text {
@@ -243,8 +271,4 @@
   margin-top: 50px;
   padding-right: 30px;
   padding-left: 30px;
-}
-
-.image-header__auth {
-
 }
