@@ -141,4 +141,69 @@
   padding-right: 50px !important;
 }
 
-// PART 4 PUBLIC HEADER
+// PART 4 FOOTER
+#footer {
+  color: white;
+  margin-top: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: left;
+  background: #233259;
+}
+
+.footer-col-small, .footer-col-big, .footer-col-connect {
+  float: left;
+  width: 25%;
+  margin-right: 20px;
+}
+
+.footer-col-big {
+  width: 50%;
+}
+
+.footer-col-small {
+  width: 25%;
+}
+
+.footer-col-connect{
+  width: 25%;
+
+}
+
+.footer-col-connect__content{
+  padding: 10px;
+}
+
+.footer-title {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: bold;
+  width: auto;
+}
+
+.footer-content {
+  color: #b2b2b2;
+  font-size: 15px;
+  line-height: 23px;
+}
+
+.box {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+  border: 2px solid #b2b2b2;
+  padding: 15px;
+}
+
+.mobile-app {
+  width: 110px;
+  height: 40px;
+}
+
+.social-icon{
+  width: 24px;
+  height: 24px;
+}
