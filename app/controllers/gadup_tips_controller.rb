@@ -1,8 +1,8 @@
 class GadupTipsController < ApplicationController
   before_action :authenticate_admin!, except: :show
+
   layout 'admin', except: :show
   layout 'user', only: :show
-
 
   def new
     @gadup_tip = GadupTip.new
@@ -70,7 +70,7 @@ class GadupTipsController < ApplicationController
   end
 
   def create_entry
-    @entry = Entry.new(feed_id: @feed.id, entries_url: "http://localhost:3000/tips/#{@gadup_tip.id}", title: @gadup_tip.title, content: @gadup_tip.content.first(200), author: @gadup_tip.author, image_url: @gadup_tip.display_picture, published: @gadup_tip.created_at, admin_id: 1, category: 2)
+    @entry = Entry.new(feed_id: @feed.id, entries_url: "#{root_url}/tips/#{@gadup_tip.id}", title: @gadup_tip.title, content: @gadup_tip.content.first(200), author: @gadup_tip.author, image_url: @gadup_tip.display_picture, published: @gadup_tip.created_at, admin_id: 1, category: 2)
     if @entry.save
       @gadup_tip.entry_id = @entry.id
       @gadup_tip.save
