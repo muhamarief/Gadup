@@ -1,29 +1,37 @@
-// PART 1 USER-DASHBOARD-PAGE
-.dashboard-header, .each-content {
-  padding: 20px 20px 20px 20px;
+#dashboard-head-container {
+  margin-top: 80px;
+  background: #fff;
+  border: solid 1px #fff;
+  padding: 25px 40px;
 }
 
-.dashboard-container {
-  margin-top: 30px;
-  background-color: #fff;
-  border: 3px solid #BACCD6;
-  border-radius: 3px;
+.personal-info div {
+  float: left;
+  clear: none;
 }
 
-#dashboard-wallet-news {
-  padding-left: 0px;
-  padding-right: 0px;
+.info-container h3{
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.user-time__join {
+  font-size: 13px;
+  color: #adadad;
+  font-weight: 500px;
 }
 
-.dashboard-header-context {
-  border-bottom: 1px solid #BEBEBE;
+.profpic-container {
+  padding-right: 10px;
 }
 
-.dashboard-header h2 {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 300;
+.info-container {
+  padding-left: 10px;
 }
 
+.profile-picture {
+  width: 150px;
+  height: 150px;
+}
 
 .panel-green{
   border-color: #5cb85c !important;
@@ -31,10 +39,6 @@
 
 .panel-yellow {
   border-color: #f0ad4e !important;
-}
-
-.panel-black {
-  border-color: #0A0A0A !important;
 }
 
 .panel-green .panel-heading {
@@ -47,12 +51,6 @@
   border-color: #f0ad4e;
   color: #fff;
   background-color: #f0ad4e;
-}
-
-.panel-black .panel-heading {
-  border-color: #0A0A0A;
-  color: #fff;
-  background-color: #0A0A0A;
 }
 
 .panel-icons {
@@ -81,56 +79,6 @@
   color: #f0ad4e;
 }
 
-.panel-black .panel-body a{
-  color: #0A0A0A;
-}
-
-@media (max-width: 1599px) {
-  .select-date {
-    display: table;
-    width: 100%;
-  }
-
-  .select-date a {
-    color: black;
-    padding: 20px 12px 20px;
-    font-size: 15px;
-    display: table-cell;
-    text-align: center;
-    border: 1px solid black;
-  }
-
-  .select-date a.current {
-    color: white;
-    background-color: #EC2761;
-  }
-}
-
-#wallet-summary {
-  margin-top: 20px;
-}
-
-.head-content {
-  padding-bottom: 15px;
-}
-
-.select-date a:hover{
-  text-decoration: none;
-}
-
-.news-image {
-  width: 90%;
-  height: 7em;
-}
-
-.news-title h4 {
-  font-size: 15px;
-  text-decoration: none;
-  font-weight: 250;
-  color: black;
-  width: inherit;
-  font-family: tahoma,sans-serif;
-}
 
 // PART 2 USER SHOW AND EDIT PAGE
 .body-header {

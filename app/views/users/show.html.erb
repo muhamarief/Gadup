@@ -1,42 +1,33 @@
 <%= render template: "component/_headers"%>
 
-<div class='row'>
-    <div class='dashboard-container col-md-9 col-lg-9 col-sm-9 col-xs-12'>
-        <div class='dashboard-header'>
-            <h2 class='dashboard-header-context'> Dashboard <small> Statistic Overview </small></h2>
-        <!-- div .dashboard-head -->
-        </div>
-
-        <div id='dashboard-wallet-news'>
-            <div class='head-content'>
-                <h3> My Wallet </h3>
-            </div>
-        </div>
-    <!-- div #dashboard-container -->
-    </div>
-
-    <div class='dashboard-container col-md-3 col-lg-3 col-sm-3 hidden-xs'>
-        <div class='head-content'>
-            <h3 align='center'> News </h3>
-        </div>
-        <div class='news-content'>
-            <% @entries_array.each do |entries| %>
-                <div class='row'>
-                    <% entries.each do |entry| %>
-                        <div class='col-md-6 col-lg-6 col-sm-6'>
-                          <%=image_tag "#{entry.image_url}", class: "news-image"%>
-
-
-                          <div class='entry-column'>
-                              <%= link_to entry.entries_url, class: 'news-title', target: '_blank' do %>
-                                  <h4><%= entry.title %></h4>
-                              <% end %>
-                          </div>
-                        </div>
-                    <% end %>
-                </div>
+<div id='dashboard-head-container' class='col-md-10 col-lg-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1'>
+    <div class='personal-info'>
+        <div class='profpic-container'>
+            <%if current_authenticatee.gender == 1 %>
+                <%=image_tag('male-avatar.png', class: 'profile-picture') %>
+            <% else %>
+                <%=image_tag('female-avatar.png', class: 'profile-picture') %>
             <% end %>
         </div>
-    <!-- div #dashboard-news -->
+        <div class='info-container'>
+            <h3> <%= current_authenticatee.full_name %> </h3>
+            <p class='user-time__join'> joined at: <%= current_authenticatee.created_at.strftime("%B %d, %Y") %> </p>
+            <p> Results For: </p>
+            <%= search_form_for(@q, url: "/dashboard/#{@user.id}/#{@user.full_name}", method: :get) do |f| %>
+
+                <p> from </p> <%= f.date_select :spending_time_gteq %>
+
+                <p> to </p> <%= f.date_select :spending_time_lteq %>
+                <%= f.submit %>
+
+            <% end %>
+        </div>
     </div>
+<!-- #dashboard-personal-info -->
+</div>
+
+<div>
+  <% @spendings.each do |spending| %>
+      <%= spending.nominal %>
+  <% end %>
 </div>

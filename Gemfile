@@ -90,3 +90,9 @@ gem "mini_magick"
 
 #rails
 gem 'trix'
+
+#rails datepicker
+gem 'bootstrap-datepicker-rails'
+
+#rails search engine gem
+gem 'ransack'

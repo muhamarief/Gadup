@@ -75,9 +75,11 @@ class UsersController < ApplicationController
     @user = current_authenticatee
     @entries = Entry.all.limit(5)
     @wallet = @user.wallets.first
-    @entries = Entry.where('category = ?', 1).order('id DESC').limit(6)
-    @entries_array = @entries.each_slice(2).to_a
-    @this_week = (Date.today.at_beginning_of_week..Date.today.at_end_of_week)
+
+    @q = @wallet.spendings.ransack(params[:q])
+    @spendings = @q.result
+    # @entries = Entry.where('category = ?', 1).order('id DESC').limit(6)
+    # @entries_array = @entries.each_slice(2).to_a
   end
 
   def edit
@@ -129,7 +131,4 @@ class UsersController < ApplicationController
       render :file => "public/401.html", :status => :unauthorized
     end
   end
-
-
-
 end
