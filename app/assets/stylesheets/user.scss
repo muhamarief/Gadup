@@ -1,13 +1,8 @@
 #dashboard-head-container {
-  margin-top: 80px;
+  margin-top: 40px;
   background: #fff;
   border: solid 1px #fff;
   padding: 25px 40px;
-}
-
-.personal-info div {
-  float: left;
-  clear: none;
 }
 
 .info-container h3{
@@ -31,6 +26,27 @@
 .profile-picture {
   width: 150px;
   height: 150px;
+}
+
+.basic-result {
+  p {
+    text-align: center;
+  }
+  h4 {
+    text-align: center;
+    letter-spacing: 1px;
+  }
+}
+
+.balance-cont {
+  margin-top: 25px;
+}
+
+
+
+.btn-wallet-search{
+  clear: both;
+  float: none !important;
 }
 
 .panel-green{

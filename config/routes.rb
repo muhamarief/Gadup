@@ -44,6 +44,8 @@ Rails.application.routes.draw do
     get 'news', on: :collection
   end
 
+  # search routes
+  get 'search', to: 'search#index', as: :search
 
 
   #authentication pages

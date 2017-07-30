@@ -1,33 +1,68 @@
 <%= render template: "component/_headers"%>
 
 <div id='dashboard-head-container' class='col-md-10 col-lg-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1'>
-    <div class='personal-info'>
-        <div class='profpic-container'>
-            <%if current_authenticatee.gender == 1 %>
-                <%=image_tag('male-avatar.png', class: 'profile-picture') %>
-            <% else %>
-                <%=image_tag('female-avatar.png', class: 'profile-picture') %>
-            <% end %>
-        </div>
-        <div class='info-container'>
-            <h3> <%= current_authenticatee.full_name %> </h3>
-            <p class='user-time__join'> joined at: <%= current_authenticatee.created_at.strftime("%B %d, %Y") %> </p>
-            <p> Results For: </p>
-            <%= search_form_for(@q, url: "/dashboard/#{@user.id}/#{@user.full_name}", method: :get) do |f| %>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6 col-lg-6 col-sm-12 col-xs-12'>
+                <div class='col-md-4 col-lg-4 col-sm-6 col-xs-6'>
+                    <div class='profpic-container'>
+                        <%if current_authenticatee.gender == 1 %>
+                            <%=image_tag('male-avatar.png', class: 'profile-picture') %>
+                        <% else %>
+                            <%=image_tag('female-avatar.png', class: 'profile-picture') %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class='col-md-8 col-lg-8 col-sm-6 col-xs-6'>
+                    <div class='info-container'>
+                        <h3> <%= current_authenticatee.full_name %> </h3>
+                        <p class='user-time__join'> joined at: <%= current_authenticatee.created_at.strftime("%B %d, %Y") %> </p>
+                        <p> Results For: </p>
+                        <%= form_tag search_path, method: :get do |f| %>
+                            <div class='row'>
+                                <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                    <%= label_tag :from %><br/>
+                                    <%= date_field_tag :q, nil %>
+                                </div>
+                                <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6'>
+                                    <%= label_tag :to %><br/>
+                                    <%= date_field_tag :v, nil %>
+                                </div>
+                            </div>
 
-                <p> from </p> <%= f.date_select :spending_time_gteq %>
-
-                <p> to </p> <%= f.date_select :spending_time_lteq %>
-                <%= f.submit %>
-
-            <% end %>
+                            <div class='btn-wallet-search'>
+                              <button class="btn btn-sm btn-blue btn-block" type="submit">Search</button>
+                            </div>
+                        <% end %>
+                    <!-- .info-container -->
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-6 col-lg-6 col-sm-12 col-xs-12'>
+                <div class='basic-result'>
+                    <div class='row'>
+                        <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6'>
+                            <p> INCOME </p>
+                            <h4>
+                              <%= amount_to_rupiah(@total_income)%>
+                            </h4>
+                        </div>
+                        <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6'>
+                            <p> SPENDING </p>
+                            <h4>
+                              <%= amount_to_rupiah(@total_spending)%>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class='balance-cont'>
+                        <p> BALANCE </p>
+                        <h4>
+                          <%= amount_to_rupiah(@balance)%>
+                        </h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 <!-- #dashboard-personal-info -->
-</div>
-
-<div>
-  <% @spendings.each do |spending| %>
-      <%= spending.nominal %>
-  <% end %>
 </div>

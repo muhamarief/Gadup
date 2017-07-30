@@ -72,12 +72,29 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_authenticatee
     @entries = Entry.all.limit(5)
-    @wallet = @user.wallets.first
+    @wallet = current_authenticatee.wallets.first
+    @spendings = @wallet.spendings.all
+    @incomes = @wallet.incomes.all
 
-    @q = @wallet.spendings.ransack(params[:q])
-    @spendings = @q.result
+
+    # @q = @wallet.spendings.ransack(params[:q])
+    # @spendings = @q.result
+    @total_spending = 0.to_d
+
+    @spendings.each do |spending|
+      @total_spending += spending.nominal
+    end
+    #
+    # @q = @wallet.incomes.ransack(params[:q])
+    # @incomes = @q.result
+    @total_income = 0.to_d
+    @incomes.each do |income|
+      @total_income += income.nominal
+    end
+
+    @balance = @total_income - @total_spending
+
     # @entries = Entry.where('category = ?', 1).order('id DESC').limit(6)
     # @entries_array = @entries.each_slice(2).to_a
   end
