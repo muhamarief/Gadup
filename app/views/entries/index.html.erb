@@ -31,7 +31,7 @@
 
                     <div class='entry-column'>
                         <% if tip.gadup_tip %>
-                            <%= link_to tips_path(tip.gadup_tip.id), class: 'entry-title', target: '_blank' do %>
+                            <%= link_to tips_path(tip.gadup_tip.id, tip.title.parameterize), class: 'entry-title', target: '_blank' do %>
                                 <h4><%= tip.title %></h4>
                             <% end %>
                         <% else %>
@@ -48,10 +48,10 @@
                         <!-- div .row entry-info -->
                         </div>
                           <% if tip.gadup_tip %>
-                              <%= tip.content%> &nbsp;&nbsp; <%= link_to 'Read More', tips_path(tip.gadup_tip.id) %>
+                              <%= tip.content%> &nbsp;&nbsp; <%= link_to 'Read More', tips_path(tip.gadup_tip.id, tip.title.parameterize) %>
                           <% else %>
-                              <%= tip.content%> &nbsp;&nbsp; <%= link_to 'Read More', tips_path(tip.entries_url) %>
-                          <%end %>
+                              <%= tip.content%> &nbsp;&nbsp; <%= link_to 'Read More', tip.entries_url %>
+                          <% end %>
                     <!-- .entry-column -->
                     </div>
                 <!-- .each-entry -->

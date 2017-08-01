@@ -1,14 +1,19 @@
 class SearchController < ApplicationController
+  layout 'user', only: :index
 
   def index
     @wallet = current_authenticatee.wallets.first
+
     @balance = 0.to_d
     @wallet.spendings.all.each do |spending|
-      @balance -= spending
+      @balance -= spending.nominal
     end
     @wallet.incomes.all.each do |income|
-      @balance += income
+      @balance += income.nominal
     end
+
+    @spending_shows = Spending.all.order(spending_time: :desc).limit(5)
+    @income_shows = Income.all.order(transaction_time: :desc).limit(5)
 
     @q = params[:q]
     @v = params[:v]

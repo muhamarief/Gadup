@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :entries, except: :create
   end
   resources :gadup_tips, except: :show, constraints: { subdomain: 'admin' }
-  get 'tips/:id', to: 'gadup_tips#show', as: 'tips'
+  get "tips/t-:id/:title", to: 'gadup_tips#show', as: 'tips'
 
 
   #users pages
@@ -47,12 +47,12 @@ Rails.application.routes.draw do
   # search routes
   get 'search', to: 'search#index', as: :search
 
-
   #authentication pages
   namespace :auth do
     resources :users, only: [:new, :create, :destroy]
     resources :admins, only: [:new, :create, :destroy], constraints: { subdomain: 'admin' }
   end
+
 
 
   # GADUP API ROUTES
