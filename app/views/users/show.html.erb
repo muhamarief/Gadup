@@ -17,7 +17,7 @@
                     <div class='info-container'>
                         <h3> <%= current_authenticatee.full_name %> </h3>
                         <p class='user-time__join'> joined at: <%= current_authenticatee.created_at.strftime("%B %d, %Y") %> </p>
-                        <p> Results For: </p>
+                        <p> Results For:<small> (default: last 30 days) </p>
                         <%= form_tag search_path, method: :get do |f| %>
                             <div class='row'>
                                 <div class='col-md-6 col-sm-6 col-xs-6 col-lg-6'>
@@ -47,6 +47,7 @@
                               <%= amount_to_rupiah(@total_income)%>
                             </h4>
                         </div>
+
                         <div class='col-md-6 col-lg-6 col-xs-6 col-sm-6'>
                             <p> SPENDING </p>
                             <h4>
@@ -54,6 +55,7 @@
                             </h4>
                         </div>
                     </div>
+
                     <div class='balance-cont'>
                         <p> BALANCE </p>
                         <h4>
@@ -61,8 +63,70 @@
                         </h4>
                     </div>
                 </div>
+            <!-- .col-md-6 col-lg-6 col-sm-12 col-xs-12 -->
             </div>
+        <!-- .row -->
         </div>
+    <!-- .container -->
     </div>
 <!-- #dashboard-personal-info -->
+</div>
+
+<div class='wallet-content col-md-12 col-sm-12 col-xs-12 col-lg-12'>
+        <div class='wallet-content__each_left'>
+            <div class='wallet-content__head'>
+                <h4> FIX MONTHLY SPENDINGS </h4>
+                <%= link_to 'Show All', root_path, class: 'pull-right' %>
+            </div>
+            <div class='wallet-content__desc'>
+                <p> Track & Manage your monthly payment </p>
+            </div>
+            <div class='wallet-content__body'>
+                <p> asdawfawfasdasda </p>
+            </div>
+        </div>
+
+        <div class='wallet-content__each_center'>
+            <div class='wallet-content__head'>
+                <h4> Spendings </h4>
+                <%= link_to 'Show All', root_path, class: 'pull-right' %>
+            </div>
+            <div class='wallet-content__desc'>
+                <p> Your latest spendings until today </p>
+            </div>
+            <div class='wallet-content__body'>
+                <% @spending_shows.each do |spending| %>
+                    <div class="wallet-content__body_each row">
+                        <div class='col-md-3 col-lg-3'>
+                            <h5> Category </h5>
+                            <p> <%= spending.spending_time.strftime("%d-%m-%Y") %> </p>
+                        </div>
+
+                        <div class='col-md-6 col-lg-6'>
+                            <p> <%= amount_to_rupiah(spending.nominal) %> </p>
+                        </div>
+
+                        <div class='col-md-3 col-lg-3'>
+                            <a href='#' data-toggle='modal' data-target="#spendingDetails", class='pull-right'>
+                              Details
+                            </a>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+        <div class='wallet-content__each_right'>
+            <div class='wallet-content__head'>
+                <h4> Allocated Budget </h4>
+                <%= link_to 'Show All', root_path, class: 'pull-right' %>
+            </div>
+            <div class='wallet-content__desc'>
+                <p> Your available budgets </p>
+            </div>
+            <div class='wallet-content__body'>
+                <p> asdasdadsa </p>
+            </div>
+        </div>
+<!-- .wallet-content -->
 </div>

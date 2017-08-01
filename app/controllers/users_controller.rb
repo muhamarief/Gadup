@@ -72,22 +72,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    @entries = Entry.all.limit(5)
     @wallet = current_authenticatee.wallets.first
+
     @spendings = @wallet.spendings.all
+    @spending_shows = @spendings.order(spending_time: :desc).limit(5)
     @incomes = @wallet.incomes.all
+    @income_shows = @incomes.order(transaction_time: :desc).limit(5)
 
-
-    # @q = @wallet.spendings.ransack(params[:q])
-    # @spendings = @q.result
     @total_spending = 0.to_d
 
     @spendings.each do |spending|
       @total_spending += spending.nominal
     end
-    #
-    # @q = @wallet.incomes.ransack(params[:q])
-    # @incomes = @q.result
+
     @total_income = 0.to_d
     @incomes.each do |income|
       @total_income += income.nominal
