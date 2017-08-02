@@ -1,0 +1,17 @@
+<div class="wallet-content__body_each row">
+    <div class='content-column_med'>
+        <h5> <%= spending.category %> </h5>
+        <p> <%= spending.spending_time.strftime("%d-%m-%Y") %> </p>
+    </div>
+
+    <div class='content-column_big'>
+        <h5> <%= amount_to_rupiah(spending.nominal) %> </h5>
+        <p> <%= spending.classification ? "Priority" : "Non-Priority" %> </p>
+    </div>
+
+    <div class='content-column_med'>
+        <a href='#' data-toggle='modal' data-target="#spendingDetails", class='pull-right'>
+          Details
+        </a>
+    </div>
+</div>

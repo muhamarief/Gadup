@@ -3,6 +3,11 @@ class SearchController < ApplicationController
 
   def index
     @wallet = current_authenticatee.wallets.first
+    @monthly_spendings = @wallet.spendings.where('spending_type = ?', 2)
+    @total_monthly_spending = 0
+    @monthly_spendings.each do |spending|
+      @total_monthly_spending += spending.nominal
+    end
 
     @balance = 0.to_d
     @wallet.spendings.all.each do |spending|

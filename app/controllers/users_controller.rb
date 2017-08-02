@@ -79,6 +79,12 @@ class UsersController < ApplicationController
     @incomes = @wallet.incomes.all
     @income_shows = @incomes.order(transaction_time: :desc).limit(5)
 
+    @monthly_spendings = @spendings.where('spending_type = ?', 2)
+    @total_monthly_spending = 0
+    @monthly_spendings.each do |spending|
+      @total_monthly_spending += spending.nominal
+    end
+
     @total_spending = 0.to_d
 
     @spendings.each do |spending|

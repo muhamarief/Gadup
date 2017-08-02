@@ -20,6 +20,8 @@ class IncomesController < ApplicationController
                                     :transaction_time,
                                     :description,
                                     :currency,
-                                    :income_type)
+                                    :income_type,
+                                    :classification,
+                                    :category)
   end
 end

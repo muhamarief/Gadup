@@ -20,7 +20,9 @@ class SpendingsController < ApplicationController
                                       :spending_time,
                                       :description,
                                       :currency,
-                                      :spending_type)
+                                      :spending_type,
+                                      :classification,
+                                      :category)
       end
 
 end
