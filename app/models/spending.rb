@@ -1,7 +1,7 @@
 class Spending < ApplicationRecord
   belongs_to :wallet
 
-  validates :category, null: false
+  validates :category, presence: true
   enum category: [" ", 'Life & Entertainment', 'Sports', 'Food & Drinks', 'Transportation', 'Utilities', 'Communication', 'Electronics', 'Shopping', "Others"]
 
 end

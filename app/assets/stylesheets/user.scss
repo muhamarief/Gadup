@@ -53,6 +53,7 @@
 
 .wallet-content {
   margin-top: 50px;
+  margin-bottom: 30px;
 
   a:hover {
     text-decoration-line: none;
@@ -80,7 +81,7 @@
   margin: 0 1%;
 }
 
-.wallet-content__desc{
+.wallet-content__desc, .wallet-content__footer {
   padding: 5px 15px;
   border-top: 1px solid #e6eaee;
   border-bottom: 1px solid #e6eaee;
@@ -119,7 +120,34 @@
     font-size: 13px;
     letter-spacing: 1px;
     color: #7f8fa4;
+    height: 100%;
     text-align: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .content-column_med {
+    width: 25%;
+  }
+
+  .content-column_big {
+    width: 50%;
+  }
+
+  .content-column_big, .content-column_med {
+    height: inherit;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.wallet-content__footer{
+  h5 {
+    text-align: right;
+    letter-spacing: 1px;
   }
 }
 
