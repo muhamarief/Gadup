@@ -1,4 +1,8 @@
 class WalletsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :create]
+
+  def create
+  end
 
   def show
     @user = current_authenticatee

@@ -73,50 +73,69 @@
 </div>
 
 <div class='wallet-content col-md-12 col-sm-12 col-xs-12 col-lg-12'>
-        <div class='wallet-content__each_left'>
-            <div class='wallet-content__head'>
-                <h4> FIX MONTHLY SPENDINGS </h4>
-                <%= link_to 'Show All', root_path, class: 'pull-right' %>
-            </div>
-            <div class='wallet-content__desc'>
-                <p> Track & Manage your monthly payment </p>
-            </div>
-            <div class='wallet-content__body'>
-                <% @monthly_spendings.each do |spending| %>
-                    <%= render template: 'users/_wallet_content_body', locals: { spending: spending } %>
-                <% end %>
-            </div>
-            <div class='wallet-content__footer'>
-                  <h5>Total: <%=amount_to_rupiah(@total_monthly_spending) %></h5>
-            </div>
+    <div class='wallet-content__each_left'>
+        <div class='wallet-content__head'>
+            <h4> Fix Monthly Spendings </h4>
+            <%= link_to 'Show All', root_path, class: 'pull-right' %>
         </div>
+        <div class='wallet-content__desc'>
+            <p> Track & Manage your monthly payment </p>
+        </div>
+        <div class='wallet-content__body'>
+            <% @monthly_spendings.each do |spending| %>
+                <%= render template: 'users/_wallet_content_body', locals: { spending: spending } %>
+            <% end %>
+        </div>
+        <div class='wallet-content__footer'>
+              <h5>Total: <%=amount_to_rupiah(@total_monthly_spending) %></h5>
+        </div>
+    </div>
 
-        <div class='wallet-content__each_center'>
-            <div class='wallet-content__head'>
-                <h4> Spendings </h4>
-                <%= link_to 'Show All', root_path, class: 'pull-right' %>
-            </div>
-            <div class='wallet-content__desc'>
-                <p> Your latest spendings until today </p>
-            </div>
-            <div class='wallet-content__body'>
-                <% @spending_shows.each do |spending| %>
-                    <%= render template: 'users/_wallet_content_body', locals: { spending: spending } %>
-                <% end %>
-            </div>
+    <div class='wallet-content__each_center'>
+        <div class='wallet-content__head'>
+            <h4> Spendings </h4>
+            <%= link_to 'Show All', root_path, class: 'pull-right' %>
         </div>
+        <div class='wallet-content__desc'>
+            <p> Your latest spendings until today </p>
+        </div>
+        <div class='wallet-content__body'>
+            <% @spending_shows.each do |spending| %>
+                <%= render template: 'users/_wallet_content_body', locals: { spending: spending } %>
+            <% end %>
+        </div>
+    </div>
 
-        <div class='wallet-content__each_right'>
-            <div class='wallet-content__head'>
-                <h4> Allocated Budget </h4>
-                <%= link_to 'Show All', root_path, class: 'pull-right' %>
-            </div>
-            <div class='wallet-content__desc'>
-                <p> Your available budgets </p>
-            </div>
-            <div class='wallet-content__body'>
-                <p> asdasdadsa </p>
-            </div>
+    <div class='wallet-content__each_right'>
+        <div class='wallet-content__head'>
+            <h4> Allocated Budget </h4>
+            <%= link_to 'Show All', root_path, class: 'pull-right' %>
         </div>
+        <div class='wallet-content__desc'>
+            <p> Your available budgets </p>
+        </div>
+        <div class='wallet-content__body'>
+            <p> asdasdadsa </p>
+        </div>
+    <!-- .wallet-content__each_left -->
+    </div>
 <!-- .wallet-content -->
+</div>
+
+<div class='wallet-graphs col-md-12 col-sm-12 col-xs-12 col-lg-12'>
+    <div class='wallet-content__graphs'>
+        <div class='wallet-content__head'>
+            <h4> Track My Balance </h4>
+        </div>
+        <div class='wallet-content__desc'>
+            <p> Overview of your balance based on your prefered time period </p>
+        </div>
+        <div id='chart_div' class='wallet-content__body'>
+        </div>
+    </div>
+
+    <div class='wallet-content__graphs'>
+      <p> aaa </p>
+
+    </div>
 </div>

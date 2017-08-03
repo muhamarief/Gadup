@@ -1,0 +1,2 @@
+class AllocatedBudgetsController < ApplicationController
+end

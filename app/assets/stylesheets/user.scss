@@ -53,7 +53,15 @@
 
 .wallet-content {
   margin-top: 50px;
-  margin-bottom: 30px;
+
+  a:hover {
+    text-decoration-line: none;
+  }
+}
+
+.wallet-graphs {
+  margin-top: 50px;
+  margin-bottom: 25px;
 
   a:hover {
     text-decoration-line: none;
@@ -150,6 +158,17 @@
     letter-spacing: 1px;
   }
 }
+
+.wallet-content__graphs {
+  background: #fff;
+  border: solid 1px #e6eaee;
+  position: relative;
+  box-sizing: border-box;
+  float: left;
+  width: 48%;
+  margin: 0 1%;
+}
+
 
 
 .panel-green{

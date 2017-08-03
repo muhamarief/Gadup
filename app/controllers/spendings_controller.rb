@@ -5,6 +5,8 @@ class SpendingsController < ApplicationController
     @wallet = current_authenticatee.wallets.first
     @spending = Spending.new(spending_params)
     @spending.wallet_id = params[:wallet_id]
+    @spending.spending_date = @spending.spending_time.to_date
+
     if @spending.save
       redirect_to user_wallet_path(@user, @wallet)
     else

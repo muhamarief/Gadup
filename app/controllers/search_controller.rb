@@ -9,7 +9,7 @@ class SearchController < ApplicationController
       @total_monthly_spending += spending.nominal
     end
 
-    @balance = 0.to_d
+    @balance = @wallet.wallet_balance
     @wallet.spendings.all.each do |spending|
       @balance -= spending.nominal
     end
@@ -23,13 +23,13 @@ class SearchController < ApplicationController
     @q = params[:q]
     @v = params[:v]
 
-    @spendings = @wallet.spendings.search(spending_time_gteq: @q, spending_time_lteq: @v).result
+    @spendings = @wallet.spendings.search(spending_date_gteq: @q, spending_date_lteq: @v).result
     @total_spending = 0.to_d
     @spendings.each do |spending|
       @total_spending += spending.nominal
     end
 
-    @incomes = @wallet.incomes.search(transaction_time_gteq: @q, transaction_time_lteq: @v).result
+    @incomes = @wallet.incomes.search(transaction_date_gteq: @q, transaction_date_lteq: @v).result
     @total_income = 0.to_d
     @incomes.each do |income|
       @total_income += income.nominal
