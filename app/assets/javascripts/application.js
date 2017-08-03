@@ -17,5 +17,7 @@
 //= require bootstrap-datepicker
 //= require turbolinks
 //= require trix
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 //= require jquery-ui

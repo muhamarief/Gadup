@@ -1,0 +1,2 @@
+class AllocatedBudget < ApplicationRecord
+end

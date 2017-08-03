@@ -5,7 +5,7 @@ class Wallet < ApplicationRecord
   has_one :wallet_setting, dependent: :destroy
 
   validates :owner, presence: true
-  validates :owner_id, uniqueness: true
+  validates :owner_id, presence: true
 
   def total_spendings_by_month(month)
     spendings = self.spendings.where('extract(month from spending_time) = ?', month)

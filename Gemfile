@@ -96,3 +96,6 @@ gem 'bootstrap-datepicker-rails'
 
 #rails search engine gem
 gem 'ransack'
+
+#graph for rails
+gem "chartkick"

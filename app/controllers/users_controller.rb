@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_me!, only: [:show, :edit, :update, :destroy]
+  before_action :set_track_balance, only: :show
   layout 'user', only: :show
 
   def new
@@ -98,6 +99,7 @@ class UsersController < ApplicationController
 
     @balance = @total_income - @total_spending
 
+    # render :json => @track_balance.to_json
     # @entries = Entry.where('category = ?', 1).order('id DESC').limit(6)
     # @entries_array = @entries.each_slice(2).to_a
   end
@@ -151,4 +153,48 @@ class UsersController < ApplicationController
       render :file => "public/401.html", :status => :unauthorized
     end
   end
+
+  protected
+  def set_track_balance
+    @wallet = current_authenticatee.wallets.first
+    @duration_balance = (1.month.ago.to_date..Date.today).map{ |date| date }
+
+    spendings = @wallet.spendings.where('spending_date < ?', 1.month.ago.to_date)
+    incomes = @wallet.incomes.where('transaction_date < ?', 1.month.ago.to_date)
+
+    @start_balance = @wallet.wallet_balance
+    if incomes.length > 0
+      incomes.all.each do |income|
+        @start_balance += income.nominal
+      end
+    end
+    if spendings.length > 0
+      spendings.all.each do |spending|
+        @start_balance -= spending.nominal
+      end
+    end
+
+    @balance_array = []
+    @duration_balance.each do |date|
+      spendings = Spending.where('spending_date = ?', date)
+      incomes = Income.where('transaction_date = ?', date)
+
+      if incomes.length > 0
+        incomes.each do |income|
+          @start_balance += income.nominal
+        end
+      end
+      if spendings.length > 0
+        spendings.each do |spending|
+          @start_balance -= spending.nominal
+        end
+      end
+
+      @balance_array << @start_balance
+    end
+
+
+    @track_balance = {duration_balance: @duration_balance, balance_array: @balance_array}
+  end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801092936) do
+ActiveRecord::Schema.define(version: 20170803155615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20170801092936) do
     t.string   "password_digest",                        null: false
     t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "allocated_budgets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title",       null: false
+    t.decimal  "nominal",     null: false
+    t.text     "description"
+    t.date     "start_date",  null: false
+    t.date     "end_date",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_allocated_budgets_on_user_id", using: :btree
   end
 
   create_table "api_keys", force: :cascade do |t|
@@ -108,21 +120,25 @@ ActiveRecord::Schema.define(version: 20170801092936) do
     t.integer  "income_type",                      null: false
     t.boolean  "classification"
     t.integer  "category"
+    t.date     "transaction_date"
     t.index ["wallet_id"], name: "index_incomes_on_wallet_id", using: :btree
   end
 
   create_table "spendings", force: :cascade do |t|
-    t.decimal  "nominal",                        null: false
-    t.datetime "spending_time",                  null: false
-    t.integer  "wallet_id",                      null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.decimal  "nominal",                             null: false
+    t.datetime "spending_time",                       null: false
+    t.integer  "wallet_id",                           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "description"
     t.json     "photos"
-    t.string   "currency",       default: "IDR", null: false
-    t.integer  "spending_type",                  null: false
+    t.string   "currency",            default: "IDR", null: false
+    t.integer  "spending_type",                       null: false
     t.boolean  "classification"
     t.integer  "category"
+    t.date     "spending_date"
+    t.integer  "allocated_budget_id"
+    t.index ["allocated_budget_id"], name: "index_spendings_on_allocated_budget_id", using: :btree
     t.index ["wallet_id"], name: "index_spendings_on_wallet_id", using: :btree
   end
 
@@ -168,13 +184,16 @@ ActiveRecord::Schema.define(version: 20170801092936) do
 
   create_table "wallets", force: :cascade do |t|
     t.string   "owner_type"
-    t.integer  "owner_id",                     null: false
-    t.float    "wallet_balance", default: 0.0, null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "owner_id",                      null: false
+    t.float    "wallet_balance",  default: 0.0, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "wallet_name"
+    t.string   "wallet_currency"
     t.index ["owner_type", "owner_id"], name: "index_wallets_on_owner_type_and_owner_id", using: :btree
   end
 
+  add_foreign_key "allocated_budgets", "users"
   add_foreign_key "gadup_tips", "entries"
   add_foreign_key "wallet_settings", "wallets"
 end
