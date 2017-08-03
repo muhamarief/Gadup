@@ -2,7 +2,7 @@ class GadupTipsController < ApplicationController
   before_action :authenticate_admin!, except: :show
 
   layout 'admin', except: :show
-  layout 'user', only: :show
+  layout 'tips_layout', only: :show
 
   def new
     @gadup_tip = GadupTip.new

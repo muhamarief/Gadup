@@ -1,5 +1,7 @@
 env: flex
 runtime: ruby
+manual_scaling:
+  instances: 1
 health_check:
   enable_health_check: False
 entrypoint: bundle exec rackup -p 8080

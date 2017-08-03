@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'entries#public_news'
   get '_ah/health', to: 'app_engine#health'
 
   authenticated :user do
