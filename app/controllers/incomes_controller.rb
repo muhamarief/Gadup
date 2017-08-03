@@ -5,6 +5,7 @@ class IncomesController < ApplicationController
     @wallet = current_authenticatee.wallets.first
     @income = Income.new(income_params)
     @income.wallet_id = params[:wallet_id]
+    @income.transaction_date = @income.transaction_time.to_date
     if @income.save
       redirect_to user_wallet_path(@user, @wallet)
     else
